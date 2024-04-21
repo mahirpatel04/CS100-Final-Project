@@ -1,7 +1,7 @@
 # Agenda Planner
 
 ## Team Members:
-- Bhuvana Kotha - vkoth006
+- Bhuvana Kotha - vkoth006 - https://github.com/bhuvanak04
 - Mahir Patel - mpate141 - https://github.com/mahirpatel04
 - Shaun Mansoor - smans029
 - Trisha Siva - tsiva006
