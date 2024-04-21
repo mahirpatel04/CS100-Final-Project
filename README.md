@@ -8,3 +8,11 @@
 - Trisha Siva - tsiva006
 
 ## Project Description:
+
+### Why is it important or interesting to you?
+
+### What languages/tools/technologies do you plan to use?
+
+### What will be the input/output of your project?
+
+### What are the features that the project provides?
