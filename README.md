@@ -16,8 +16,6 @@
 
 ### What languages/tools/technologies do you plan to use?
 - C++
-- Python
-- Streamlit
 
 ### What will be the input/output of your project?
 - User inputs in details about upcoming events and deadlines they have
