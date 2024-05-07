@@ -60,9 +60,9 @@
 ### Navigation Diagram
 > Draw a diagram illustrating how the user can navigate from one screen to another. Here is an [example](https://creately.com/diagram/example/ikfqudv82/user-navigation-diagram-classic?r=v). It can be useful to label each symbol that represents a screen so that you can reference the screens in the next section or the rest of the document if necessary. Give a brief description of what the diagram represents.
 
-> The user is first greeted with a simple Welcome message before proceeding to the main menu. Here, the user will be able to see and select several options of what they would like to do on their calendar application. Each option available corresponds to a different action they can perform, such as viewing the entire calendar, editing an existing event, removing an existing event, or adding a new one. The program then navigates to the appropriate page, based on the user input. From each section, the user will also be able to navigate back to the main menu page to then again choose what toher actions they would like to take int the program. 
-
 > ![image](https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/234196ca-56da-440d-ae35-3239d1f7b5f8)
+
+> The user is first greeted with a simple Welcome message before proceeding to the main menu. Here, the user will be able to see and select several options of what they would like to do on their calendar application. Each option available corresponds to a different action they can perform, such as viewing the entire calendar, editing an existing event, removing an existing event, or adding a new one. The program then navigates to the appropriate page, based on the user input. From each section, the user will also be able to navigate back to the main menu page to then again choose what toher actions they would like to take int the program. 
 
 
 ### Screen Layouts
