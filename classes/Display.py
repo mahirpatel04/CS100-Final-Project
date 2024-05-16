@@ -1,0 +1,2 @@
+class DisplayClient:
+    pass
