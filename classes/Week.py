@@ -1,11 +1,11 @@
-class Month:
+class Week:
     def __init__(self) -> None:
         pass
-    def removeWeek():
+    def removeDay():
         pass
     def addEvent():
         pass
-    def addWeek():
+    def addDay():
         pass
     def editEvent():
         pass
