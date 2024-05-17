@@ -7,9 +7,10 @@ from classes.Display import DisplayClient
 from datetime import date
 
 
+todaysDate = date.today()
 
 displayer = DisplayClient()
-calendar = Calendar()
+calendar = Calendar(todaysDate,)
 
 # STEP 1: Welcome Message
 displayer.displayWelcome()
@@ -20,9 +21,8 @@ displayer.displayMenu()
 # STEP 3: Get Input
 while input("Enter your choice: ") != "q":
     
+    print("do something")
     
-    
-    todaysDate = date.today()
     """
     print(todaysDate.day)
     print(todaysDate.month)
