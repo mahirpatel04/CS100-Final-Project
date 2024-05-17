@@ -4,8 +4,44 @@ from classes.Week import Week
 from classes.Day import Day
 from classes.Event import Event
 from classes.Display import DisplayClient
+from datetime import date
+
+
+
+displayer = DisplayClient()
+calendar = Calendar()
 
 # STEP 1: Welcome Message
+displayer.displayWelcome()
+
+# STEP 2: Main Menu
+displayer.displayMenu()
+
+# STEP 3: Get Input
+while input("Enter your choice: ") != "q":
+    
+    
+    
+    todaysDate = date.today()
+    """
+    print(todaysDate.day)
+    print(todaysDate.month)
+    print(todaysDate.year)
+
+    '''
+    Args:
+
+    Return:
+
+    Description:
+    '''
+            
+    """
+
+
+
+
+
 
 # STEP 2: Main loop:
     # STEP 3: Display Menu
