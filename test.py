@@ -1,7 +1,18 @@
 import calendar
-from datetime import date
+from datetime import date, timedelta
 
+
+megalst = []
 td = date.today()
+for i in range(100):
+    td += timedelta(days=1)
+    megalst.append(td)
+    
+    
+
+
+    
+    
 c = calendar.Calendar()
 
 yr = 2024
@@ -10,6 +21,18 @@ day = 17
 lst30Days = [4, 6, 9, 11]
 lst31Days = [1, 3, 5, 7, 8, 10, 12]
 
+'''
+
+for i in range(365):
+    if mth in lst30Days:
+        if day + 1 > 30:
+            mth += 1
+            day = 0
+            print(f"{mth}/{day + i}/{yr}")
+    
+    
+    
+    
 
 for month in range(12):
     if month in lst30Days:
@@ -29,5 +52,4 @@ for month in range(12):
             
         else:
             # this is normal yr
-            pass
-    
+            pass'''
