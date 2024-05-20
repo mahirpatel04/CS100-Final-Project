@@ -1,6 +1,7 @@
 class Month:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, todaysDate) -> None:
+        self.weeks = []
+        for i in range()
     def removeWeek():
         pass
     def addEvent():
