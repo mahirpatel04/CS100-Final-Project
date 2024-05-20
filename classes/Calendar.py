@@ -6,7 +6,7 @@ class Calendar:
         self.days = []
         currDate = todaysDate
         for i in range(365):
-            currDate = date(todaysDate.year, todaysDate.month, todaysDate.day + i
+            currDate = date(todaysDate.year, todaysDate.month, todaysDate.day + i)
             self.days.append(currDate)
     
     def removeMonth():
