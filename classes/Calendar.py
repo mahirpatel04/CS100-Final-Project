@@ -1,13 +1,13 @@
 from datetime import date
 # from classes.Month import Month
 class Calendar:
-    def __init__(self, todaysDate: date) -> None:
+    #def __init__(self, todaysDate: date) -> None:
         
-        self.days = []
-        currDate = todaysDate
-        for i in range(365):
-            currDate = date(todaysDate.year, todaysDate.month, todaysDate.day + i)
-            self.days.append(currDate)
+        #self.days = []
+        #currDate = todaysDate
+        #for i in range(365):
+            #currDate = date(todaysDate.year, todaysDate.month, todaysDate.day + i)
+            #self.days.append(currDate)
     
     def removeMonth():
         pass
@@ -22,8 +22,8 @@ class Calendar:
     def searchEvent():
         pass
     
-dateToday = date.today()
-testCalendar = Calendar(dateToday)
+#dateToday = date.today()
+#testCalendar = Calendar(dateToday)
 
-for day in testCalendar.days:
-    print(day)
+#for day in testCalendar.days:
+    #print(day)

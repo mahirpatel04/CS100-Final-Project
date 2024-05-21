@@ -1,42 +1,32 @@
-from classes.Calendar import Calendar
-from classes.Month import Month
-from classes.Week import Week
-from classes.Day import Day
+#from classes.Calendar import Calendar
+#from classes.Month import Month
+#from classes.Week import Week
+#from classes.Day import Day
 from classes.Event import Event
-from classes.Display import DisplayClient
 from datetime import date
+from classes.Display import DisplayClient
+#from datetime import date
 
 
-todaysDate = date.today()
+#todaysDate = date.today()
 
 displayer = DisplayClient()
-calendar = Calendar(todaysDate,)
+#calendar = Calendar(todaysDate,)
+
+#print("hi")
 
 # STEP 1: Welcome Message
 displayer.displayWelcome()
 
 # STEP 2: Main Menu
-displayer.displayMenu()
+#displayer.displayMenu()
 
 # STEP 3: Get Input
-while input("Enter your choice: ") != "q":
+#while input("Enter your choice: ") != "q":
     
-    print("do something")
+    #print("do something")
     
-    """
-    print(todaysDate.day)
-    print(todaysDate.month)
-    print(todaysDate.year)
-
-    '''
-    Args:
-
-    Return:
-
-    Description:
-    '''
-            
-    """
+  
 
 
 
