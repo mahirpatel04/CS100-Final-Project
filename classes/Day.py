@@ -18,4 +18,4 @@ class Day:
         }
         
         self.events.append(event)
-        print("Event added successfully.")
+        print("Event", event, "was added successfully.")
