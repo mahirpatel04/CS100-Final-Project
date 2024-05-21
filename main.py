@@ -19,7 +19,7 @@ displayer = DisplayClient()
 displayer.displayWelcome()
 
 # STEP 2: Main Menu
-#displayer.displayMenu()
+displayer.displayMenu()
 
 # STEP 3: Get Input
 #while input("Enter your choice: ") != "q":
