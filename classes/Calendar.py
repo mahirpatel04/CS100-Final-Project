@@ -8,7 +8,7 @@ class Calendar:
         for i in range(365):
             currDate = date(todaysDate.year, todaysDate.month, todaysDate.day + i)
             self.days.append(currDate)
-    
+
     def removeMonth():
         pass
     def addEvent():
@@ -22,8 +22,3 @@ class Calendar:
     def searchEvent():
         pass
     
-dateToday = date.today()
-testCalendar = Calendar(dateToday)
-
-for day in testCalendar.days:
-    print(day)

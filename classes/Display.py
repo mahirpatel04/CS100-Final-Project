@@ -1,4 +1,4 @@
-from Event import Event
+from classes.Event import Event
 from datetime import date
 class DisplayClient:
     def displayWelcome(self):
