@@ -1,13 +1,32 @@
-from datetime import date
+from datetime import date, timedelta
+from Month import Month
 # from classes.Month import Month
 class Calendar:
-    def __init__(self, todaysDate: date) -> None:
+    def __init__(self) -> None:
+        # CREATES EMPTY MONTH, EMPTY CURR MONTH, AND 
+        # GETS TODAY's DATE
+        self.months = []          
+        currMonthList = []
+        currDay = date.today()
+        currMonthNum = currDay.month
         
-        self.days = []
-        currDate = todaysDate
+        # ADD THE 365 DAYS INTO THE CALENDAR
         for i in range(365):
-            currDate = date(todaysDate.year, todaysDate.month, todaysDate.day + i)
-            self.days.append(currDate)
+            if currDay.month == currMonthNum:
+                currMonthList.append(currDay)
+            else:
+                self.months.append(Month(currMonthList))
+                currMonthNum += 1
+                if currMonthNum == 13:
+                    currMonthNum = 1
+                currMonthList = [currDay]
+                
+            currDay += timedelta(days=1)
+        
+        self.months.append(Month(currMonthList))
+        
+        # WE END WITH 1 LIST OF 12/13 MONTHS
+            
     
     def removeMonth():
         pass
@@ -21,9 +40,3 @@ class Calendar:
         pass
     def searchEvent():
         pass
-    
-dateToday = date.today()
-testCalendar = Calendar(dateToday)
-
-for day in testCalendar.days:
-    print(day)

@@ -1,8 +1,38 @@
+from datetime import date, timedelta
+from Week import Week
+from Day import Day
 class Month:
-    def __init__(self, todaysDate) -> None:
+    def __init__(self, listOfDays: list[date]) -> None:
+        # MONTH SHOULD HAVE A LIST OF WEEKS STARTING ON MON
+        # AND GOING ALL THE WAY TO SUNDAY
+        
+        # Adding the days at the beginning
+        firstDay = listOfDays[0]
+        offset = firstDay.weekday()
+        for i in range(1, offset + 1):
+            listOfDays.insert(0, firstDay - timedelta(i))
+        
+        # Adding the days at the end
+        lastDay = listOfDays[-1]
+        offsetEnd = 7 - lastDay.weekday()
+        for i in range(1, offsetEnd):
+            listOfDays.append(lastDay + timedelta(i))
+        
+        # Spliting up the list of Days into Weeks
+        currWeekDays = []
         self.weeks = []
-        for i in range():
-            pass
+        for day in listOfDays:
+            if day.weekday() == 0:
+                currWeekDays = [day]
+            elif day.weekday() == 6:
+                currWeekDays.append(day)
+                self.weeks.append(Week(currWeekDays))
+                currWeekDays = []
+            else:
+                currWeekDays.append(day)
+                
+
+            
     def removeWeek():
         pass
     def addEvent():
