@@ -6,3 +6,6 @@ class Event:
         self.startTime = startTime
         self.endTime = endTime
         self.ID = ID
+    
+    def __str__(self):
+        return self.title
