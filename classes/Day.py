@@ -1,4 +1,5 @@
 from datetime import date
+from Event import Event
 
 
 from classes.Event import Event
@@ -7,7 +8,19 @@ from classes.EventInputHandler import EventInputHandler
 class Day:
     def __init__(self, date: date):
         self.date = date
-        self.events = []  #list of events
+
+    
+
+    
+    def removeEvent(self):
+        name = input("Enter the exact name of the event you're gonna remove ")
+        Identity = input("Enter the ID of the event ")
+        Identity = int(Identity)
+        find = Event(name, date, date, Identity)
+        for item in self.events:
+            if item.title == find.title:
+                if item.ID == find.ID:
+                    self.events.remove(item)
 
     def addEvent(self):
         event_input_handler = EventInputHandler()

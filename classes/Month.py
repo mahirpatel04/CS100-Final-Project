@@ -31,8 +31,6 @@ class Month:
             else:
                 currWeekDays.append(day)
                 
-
-            
     def removeWeek():
         pass
     def addEvent():

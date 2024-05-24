@@ -2,6 +2,7 @@ from Day import Day
 class Week:
     def __init__(self, listOfDays) -> None:
         self.days = [Day(day) for day in listOfDays]
+
     def removeDay():
         pass
     def addEvent():

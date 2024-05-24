@@ -1,4 +1,4 @@
-#from Event import Event
+from Event import Event
 from datetime import date
 
 class DisplayClient:
@@ -14,6 +14,21 @@ class DisplayClient:
         return
     def displayMenu(self):
         """
+
+        Args:
+        
+        Return:
+        
+        Description:
+        """
+        print("This is menu")
+        print("1. ")
+        print("2. ")
+        return
+
+    def displayEvent(self, event):
+        print(event)
+        return
         Args: N/A
         
         Return: N/A
@@ -66,6 +81,7 @@ class DisplayClient:
 
 
        
-    #def displayEvent(self, event):
-        #print(event)
-        #return
+    def displayEvent(self, event):
+        print(event)
+        return
+
