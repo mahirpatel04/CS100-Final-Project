@@ -22,8 +22,8 @@ class Calendar:
     def searchEvent():
         pass
     
-dateToday = date.today()
-testCalendar = Calendar(dateToday)
+#dateToday = date.today()
+#testCalendar = Calendar(dateToday)
 
-for day in testCalendar.days:
-    print(day)
+#for day in testCalendar.days:
+    #print(day)
