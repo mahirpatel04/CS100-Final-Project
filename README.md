@@ -61,29 +61,21 @@
 
 
 ## Class Diagram
+Version 1
+![image](https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/46858459/1b594a27-a24f-4f16-be7c-786680323d7e)
+
+Version 2
 ![image](https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/46858459/910b2141-c66e-424c-93aa-f578fe20387e)
 
 The week class contains an array of 7 day pointers, in which you can add, remove, display, or edit an event. These functions call helper functions from the Day class, which contains the events in it. It also conaints the struct of date, which contains the exact date that the user entered their data from, allowing them to plan out their week. The Day class contains the doubly linked list of events. It also contains the exact date that the day resides in after we calculate it from the time std library. The functions are almost all helper functions to those in Week. The eventNode class has all the components of the event, such as the title, start and end time, description, ID (in case 2 days have the same event), and the pointers to the events before and after it. 
  
  > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+## SOLIDS:
+The first SOLID principle we incorporated into our improved class diagram was the Single Responsibility Principle(SRP), which ensures that each class only has 1 responsibility. We implemented this by adding a new Display and InputHandler class, which only have one task each. The Display class is responsible for displaying information about each category. The InputHandler class is responsible for dealing with getting any user input. Initially, we had separate classes for these but this SOLID principle puts one class in charge of this responsibility.
+
+Our model also incorporates Dependency Inversion Principle(DIP), of having modules dependent on interfaces. In our diagram, we can see high-level modules like Calendar and Display depend on abstractions (Month, Week, Day, EventNode) rather than concrete implementations. This allows for more flexibility.
+
+Our classes also follow the interface segregation principle, which ensures that no subclass implements functions it doesn't absolutely need. We initially had an additional input function but later removed this in the recept scrum to simplify the program and make it more efficient. The program now takes in input through a separate InputHandler class, which we later implemented for improved efficiency. 
 
  
  > ## Final deliverable
