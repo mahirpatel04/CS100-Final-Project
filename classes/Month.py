@@ -11,6 +11,7 @@ class Month:
     def editEvent():
         pass
     def removeEvent(self):
-        self.weeks.removeEvent()
+        for item in self.weeks:
+            item.removeEvent()
     def searchEvent():
         pass
