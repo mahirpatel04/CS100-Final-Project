@@ -6,8 +6,13 @@ class Event:
         self.startTime = startTime
         self.endTime = endTime
         self.ID = ID
+
+    def __str__(self):
+        return self.title
+
         self.description = description
     
     def __repr__(self) -> str:
-        return f"{self.title}\n----------\n{self.startTime} - {self.endTime}\n----------\n{self.description}"
-    
+        twentyDashes = "-" * 20
+        return f"{self.title}\n{twentyDashes}\n{self.startTime} - {self.endTime}\n{twentyDashes}\n{self.description}"
+
