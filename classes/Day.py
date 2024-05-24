@@ -1,6 +1,8 @@
 from datetime import date
 from Event import Event
 
+from Calendar import Calendar
+
 
 from classes.Event import Event
 from classes.EventInputHandler import EventInputHandler 

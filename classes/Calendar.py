@@ -36,7 +36,8 @@ class Calendar:
         pass
     def editEvent():
         pass
-    def removeEvent():
-        pass
+    def removeEvent(self):
+        for item in self.months:
+            item.removeEvent()
     def searchEvent():
         pass

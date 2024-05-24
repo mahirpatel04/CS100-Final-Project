@@ -12,6 +12,7 @@ class Week:
     def editEvent():
         pass
     def removeEvent():
-        pass
+        for item in self.days:
+            item.removeEvent()
     def searchEvent():
         pass
