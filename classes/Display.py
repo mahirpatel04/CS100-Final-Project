@@ -27,8 +27,7 @@ class DisplayClient:
         return
 
     def displayEvent(self, event):
-        print(event)
-        return
+        """
         Args: N/A
         
         Return: N/A
