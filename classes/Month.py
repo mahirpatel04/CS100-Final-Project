@@ -10,7 +10,7 @@ class Month:
         pass
     def editEvent():
         pass
-    def removeEvent():
-        pass
+    def removeEvent(self):
+        self.weeks.removeEvent()
     def searchEvent():
         pass

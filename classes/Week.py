@@ -10,6 +10,6 @@ class Week:
     def editEvent():
         pass
     def removeEvent():
-        pass
+        self.days.removeEvent()
     def searchEvent():
         pass
