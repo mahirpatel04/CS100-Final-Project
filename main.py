@@ -1,11 +1,11 @@
-#from classes.Calendar import Calendar
-#from classes.Month import Month
-#from classes.Week import Week
-#from classes.Day import Day
+from classes.Calendar import Calendar
+from classes.Month import Month
+from classes.Week import Week
+from classes.Day import Day
 from classes.Event import Event
 from datetime import date
 from classes.Display import DisplayClient
-#from datetime import date
+from datetime import date
 
 
 #todaysDate = date.today()
