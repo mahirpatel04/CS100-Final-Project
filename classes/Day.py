@@ -1,4 +1,6 @@
 from datetime import date
+
+
 from classes.Event import Event
 from classes.EventInputHandler import EventInputHandler 
 
@@ -37,4 +39,3 @@ class Day:
         # If no conflict and no earlier event is found, append the new event at the end
         self.events.append(new_event)
         return True
-
