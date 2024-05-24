@@ -19,26 +19,26 @@ class DisplayClient:
         
         Description: Prints the main menu
         """
-        print("Enter 1 to ADD an event")
-        print("Enter 2 to REMOVE an event")
-        print("Enter 3 to EDIT an event")
+        print("Enter 1 to REMOVE week")
+        print("Enter 2 to ADD an event")
+        print("Enter 3 to ADD a Week")
         print("Enter 4 to VIEW your entire schedule")
         print("Enter 5 to SELECT an event")
         print("Enter 6 to EXIT")
 
         choice = input()
 
-        if choice == '1':
+        if choice == '1': #ADD EVENT
             print("adding event...")
-        if choice == '2':
+        if choice == '2': #REMOVE EVENT
             print("remove an event..")
-        if choice == '3':
+        if choice == '3': #EDIT EVENT
             print("edit an event..")
-        if choice == '4':
+        if choice == '4': #VIEW EVERYTHING
             print('view your entire schedule..')
-        if choice == '5':
+        if choice == '5': #SELECT AN EVENT
             print('select an event..')
-        if choice == '6':
+        if choice == '6': #EXIT
             print('select to exit..')
         return
 
