@@ -8,36 +8,34 @@ sys.path.append(os.getcwd()) # fixing module not found error for classes
 
 class DisplayClient:
     def displayWelcome(self):
+        """        
+        Displays the welcome message at the beginning of the program
         """
-        Args: N/A
-        
-        Return: N/A
-        
-        Description: Displays the welcome message at the beginning of the program
-        """
-        print("Welcome to R'Agenda")
-        return
+        choice = ""
+        print("Welcome to R'Agenda! You can plan and schedule events in this text-based planner.\nPress 'C' to continue...")
+        choice = input()
+        return choice
+
     def displayMenu(self):
         """
 
-        Args:
-        
-        Return:
-        
-        Description:
         """
-        print("This is menu")
-        print("1. ")
-        print("2. ")
-        return
+        choice = self.displayWelcome()
+
+        while choice != 'C':
+            choice = self.displayWelcome()
+
+        print("MAIN MENU")
+        print("Select 1 to ADD an event")
+        print("Select 2 to REMOVE an event")
+        print("Select 3 to EXIT")
+
 
     def displayEvent(self, event):
-        """
-        Args: N/A
-        
-        Return: N/A
-        
-        Description: Prints the main menu
+        """_summary_
+
+        Args:
+            event (_type_): _description_
         """
         print("Enter 1 to ADD an event")
         print("Enter 2 to REMOVE an event")
@@ -86,6 +84,11 @@ class DisplayClient:
 
        
     def displayEvent(self, event):
+        """_summary_
+
+        Args:
+            event (_type_): _description_
+        """
         print(event)
         return
 
