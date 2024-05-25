@@ -1,11 +1,16 @@
 from datetime import date
-from Event import Event
+from classes.Event import Event
 
-from Calendar import Calendar
+# from classes.Calendar import Calendar
 
 
 from classes.Event import Event
-from classes.EventInputHandler import EventInputHandler 
+# from classes.EventInputHandler import EventInputHandler 
+
+import sys
+import os
+
+sys.path.append(os.getcwd()) # fixing module not found error for classes
 
 class Day:
     def __init__(self, date: date):

@@ -7,6 +7,11 @@ from datetime import date
 from classes.Display import DisplayClient
 from datetime import date
 
+import sys
+import os
+
+sys.path.append(os.getcwd()) # fixing module not found error for classes
+
 
 #todaysDate = date.today()
 

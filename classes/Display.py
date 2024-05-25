@@ -1,5 +1,10 @@
-from Event import Event
+from classes.Event import Event
 from datetime import date
+
+import sys
+import os
+
+sys.path.append(os.getcwd()) # fixing module not found error for classes
 
 class DisplayClient:
     def displayWelcome(self):
