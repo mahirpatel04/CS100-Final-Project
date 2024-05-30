@@ -1,7 +1,7 @@
 from datetime import datetime
 from classes.Event import Event
 
-class EventInputHandler:
+class InputHandler:
     def get_event_from_user(self):
         title = input("Enter the event title: ")
         start_time_str = input("Enter the event start time (HH:MM): ")

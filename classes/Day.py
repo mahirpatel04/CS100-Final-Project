@@ -5,7 +5,7 @@ from classes.Event import Event
 
 
 from classes.Event import Event
-# from classes.EventInputHandler import EventInputHandler 
+from classes.InputHandler import InputHandler 
 
 import sys
 import os
@@ -30,7 +30,7 @@ class Day:
                     self.events.remove(item)
 
     def addEvent(self):
-        event_input_handler = EventInputHandler()
+        event_input_handler = InputHandler()
         new_event = event_input_handler.get_event_from_user()
 
         # Insert the new event into the events list in order of start time and ensure no conflicts
