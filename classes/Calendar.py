@@ -20,6 +20,7 @@ class Calendar:
         
         # ADD THE 365 DAYS INTO THE CALENDAR
         for i in range(365):
+
             if currDay.month == currMonthNum:
                 currMonthList.append(currDay)
             else:
@@ -36,6 +37,7 @@ class Calendar:
         # WE END WITH 1 LIST OF 12/13 MONTHS
             
     
+
     def removeMonth():
         pass
     def addEvent():
