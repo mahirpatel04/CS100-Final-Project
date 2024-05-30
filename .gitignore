@@ -1,4 +1,4 @@
 classes/__pycache__
-__pycache__
+__pycache__/
 .pytest_cache_/
-
+.pytest_cache/
