@@ -1,11 +1,11 @@
 from datetime import date, timedelta
-from Month import Month # need to have full path not just the file name
-
+from classes.Month import Month # need to have full path not just the file name
+'''
 import sys
 import os
 
 sys.path.append(os.getcwd()) # fixing module not found error for classes
-
+'''
 
 
 # from classes.Month import Month

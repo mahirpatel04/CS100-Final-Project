@@ -1,11 +1,11 @@
 from datetime import date
-from Event import Event
+from classes.Event import Event
 
 # from classes.Calendar import Calendar
 
 
 
-from InputHandler import InputHandler 
+from classes.InputHandler import InputHandler 
 
 class Day:
     def __init__(self, date: date):

@@ -1,6 +1,6 @@
 from datetime import date, timedelta
-from Week import Week
-from Day import Day
+from classes.Week import Week
+from classes.Day import Day
 
 from typing import List
 

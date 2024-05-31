@@ -21,7 +21,7 @@ displayer = DisplayClient()
 #print("hi")
 
 # STEP 1: Welcome Message
-displayer.displayWelcome()
+# displayer.displayWelcome()
 
 # STEP 2: Main Menu
 displayer.displayMenu()

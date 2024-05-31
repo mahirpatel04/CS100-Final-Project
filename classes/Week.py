@@ -1,4 +1,4 @@
-from Day import Day
+from classes.Day import Day
 
 import sys
 import os

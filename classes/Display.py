@@ -1,6 +1,6 @@
-from Event import Event
-from Calendar import Calendar
-from Week import Week
+from classes.Event import Event
+from classes.Calendar import Calendar
+from classes.Week import Week
 from datetime import date, timedelta
 
 import sys
@@ -83,16 +83,6 @@ class DisplayClient:
         else:
             print("Invalid choice. Please try again.")
 
-
-       
-    def displaySpecificEvent(self, event):
-        """_summary_
-
-        Args:
-            event (_type_): _description_
-        """
-        print(event)
-        return
 
     def displayAllEvents(self, calendar: Calendar):
         for month in calendar.months:
