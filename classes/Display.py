@@ -1,7 +1,5 @@
-from Event import Event
-from Calendar import Calendar
-from Week import Week
-from datetime import date, timedelta
+from classes.Event import Event
+from datetime import date
 
 import sys
 import os
@@ -85,7 +83,7 @@ class DisplayClient:
 
 
        
-    def displaySpecificEvent(self, event):
+    def displayEvent(self, event):
         """_summary_
 
         Args:
@@ -93,11 +91,4 @@ class DisplayClient:
         """
         print(event)
         return
-
-    def displayAllEvents(self, calendar: Calendar):
-        for month in calendar.months:
-            for week in month.weeks:
-                for day in week.days:
-                    for event in day.events:
-                        print(event)
 

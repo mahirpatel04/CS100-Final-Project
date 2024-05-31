@@ -1,5 +1,5 @@
 from datetime import date, timedelta
-from Month import Month # need to have full path not just the file name
+from classes.Month import Month # need to have full path not just the file name
 
 import sys
 import os
@@ -38,16 +38,16 @@ class Calendar:
             
     
 
-    def removeMonth(self):
+    def removeMonth():
         pass
-    def addEvent(self):
+    def addEvent():
         pass
-    def addMonth(self):
+    def addMonth():
         pass
-    def editEvent(self):
+    def editEvent():
         pass
     def removeEvent(self):
         for item in self.months:
             item.removeEvent()
-    def searchEvent(self):
+    def searchEvent():
         pass
