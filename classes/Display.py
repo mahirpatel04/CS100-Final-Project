@@ -1,10 +1,7 @@
 from classes.Event import Event
-from datetime import date
-
-import sys
-import os
-
-sys.path.append(os.getcwd()) # fixing module not found error for classes
+from classes.Calendar import Calendar
+from classes.Week import Week
+from datetime import date, timedelta
 
 class DisplayClient:
     def displayWelcome(self):
@@ -82,13 +79,11 @@ class DisplayClient:
             print("Invalid choice. Please try again.")
 
 
-       
-    def displayEvent(self, event):
-        """_summary_
 
-        Args:
-            event (_type_): _description_
-        """
-        print(event)
-        return
+    def displayAllEvents(self, calendar: Calendar):
+        for month in calendar.months:
+            for week in month.weeks:
+                for day in week.days:
+                    for event in day.events:
+                        print(event)
 
