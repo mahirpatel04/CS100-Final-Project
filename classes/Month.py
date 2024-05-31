@@ -1,6 +1,6 @@
 from datetime import date, timedelta
-from classes.Week import Week
-from classes.Day import Day
+from Week import Week
+from Day import Day
 
 from typing import List
 
@@ -41,16 +41,16 @@ class Month:
             else:
                 currWeekDays.append(day)
                 
-    def removeWeek():
+    def removeWeek(self):
         pass
-    def addEvent():
+    def addEvent(self):
         pass
-    def addWeek():
+    def addWeek(self):
         pass
-    def editEvent():
+    def editEvent(self):
         pass
     def removeEvent(self):
         for item in self.weeks:
             item.removeEvent()
-    def searchEvent():
+    def searchEvent(self):
         pass

@@ -1,5 +1,5 @@
 from datetime import datetime
-from classes.Event import Event
+from Event import Event
 
 class InputHandler:
     def get_event_from_user(self):
