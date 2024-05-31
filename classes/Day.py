@@ -4,13 +4,12 @@ from classes.Event import Event
 # from classes.Calendar import Calendar
 
 
-
+from classes.Event import Event
 from classes.InputHandler import InputHandler 
 
 class Day:
     def __init__(self, date: date):
         self.date = date
-        self.events = []
 
     
 

@@ -9,16 +9,16 @@ class Week:
     def __init__(self, listOfDays) -> None:
         self.days = [Day(day) for day in listOfDays]
 
-    def removeDay(self):
+    def removeDay():
         pass
-    def addEvent(self):
+    def addEvent():
         pass
-    def addDay(self):
+    def addDay():
         pass
-    def editEvent(self):
+    def editEvent():
         pass
-    def removeEvent(self):
+    def removeEvent():
         for item in self.days:
             item.removeEvent()
-    def searchEvent(self):
+    def searchEvent():
         pass

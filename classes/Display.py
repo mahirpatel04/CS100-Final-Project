@@ -3,11 +3,6 @@ from classes.Calendar import Calendar
 from classes.Week import Week
 from datetime import date, timedelta
 
-import sys
-import os
-
-sys.path.append(os.getcwd()) # fixing module not found error for classes
-
 class DisplayClient:
     def displayWelcome(self):
         """        
@@ -82,6 +77,7 @@ class DisplayClient:
             #break
         else:
             print("Invalid choice. Please try again.")
+
 
 
     def displayAllEvents(self, calendar: Calendar):
