@@ -4,15 +4,9 @@ from classes.Day import Day
 
 from typing import List
 
-import sys
-import os
-
-sys.path.append(os.getcwd()) # fixing module not found error for classes
-
-
 
 class Month:
-    def __init__(self, listOfDays: List[date], monthNum) -> None:
+    def __init__(self, listOfDays, monthNum) -> None:
         self.monthNum = monthNum
         # Adding the days at the beginning
         firstDay = listOfDays[0]

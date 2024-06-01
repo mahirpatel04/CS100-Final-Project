@@ -17,22 +17,33 @@ inputHandler = InputHandler()
 displayer.displayWelcome()
 continueChoice = inputHandler.getContinue()
 while continueChoice != "C":
-    displayer.displayWelcome()
-    choice = inputHandler.getContinue()
+    continueChoice = inputHandler.getContinue()
     
     
 # STEP 2: Main Menu
 
 displayer.displayMenu()
-menuChoice = inputHandler.getChoice(calendar, displayer)
-try:
-    while menuChoice == False or menuChoice != "Quit":
-        displayer.displayMenu()
-        menuChoice = inputHandler.getChoice(calendar, displayer)
 
+# Get menu choice
+
+menuChoice = inputHandler.getMenuChoice(calendar)
+while menuChoice != "6":
+    # Handle their old choice
+    calendar.handleUserChoice(menuChoice, displayer, inputHandler)
+    # Display the menu again
+    displayer.displayMenu()
+    # Get new Menu Choice
+    menuChoice = inputHandler.getMenuChoice(calendar)
+else:
+    print("User wants to quit, handle saving progress into txt file here")
+'''
+try:
+    while menuChoice != "Quit":
+        calendar.handleUserChoice(menuChoice, displayer, inputHandler)
+    
 except EOFError:
     print("Done reading from file. Remove this try/except block for final iteration of product")
-    
+    '''
 # STEP 3: Get Input
 #while input("Enter your choice: ") != "q":
     
