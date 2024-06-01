@@ -15,7 +15,7 @@ class InputHandler:
         else:
             return choice
     
-    def getQuitChoice(self):
+    def getSaveChoice(self):
         choice = input("Do you want to save your progress?(Y/N): ")
         while choice != "Y" and choice != "N":
             print("Invalid choice")
