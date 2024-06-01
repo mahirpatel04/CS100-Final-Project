@@ -62,14 +62,20 @@ class Calendar:
         if choice == "N":
             return
         elif choice == "Y":
+            file = inputHandler.getFile()
             print("User wants to save progress into a txt file here")
             return
-    def handleLoadCHoice(choice, displayer, inputHandler):
+    def handleLoadCHoice(self, choice, display, inputHandler):
         if choice == "N":
             return
         elif choice == "Y":
-            print("User wants to load progress from a txt file here")
+            file = inputHandler.getFileName()
+            self.loadFromFile(file)
             return
+    
+    def loadFromFile(self, fileName):
+        
+        print("FIXME: LOAD FROM FILE HERE")
     
     def removeMonth():
         pass

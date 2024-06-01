@@ -1,13 +1,13 @@
 from datetime import datetime
 from classes.Event import Event
-
+import easygui
 class InputHandler:
     def getContinue(self):
         choice = input("Press 'C' to continue: ")
         while choice != "C":
             choice = input("Press 'C' to continue: ")
         return
-            
+        
     def getMenuChoice(self, calendar):
         choice =  input("Enter your input: ")
         while choice not in calendar.possibleChoices:
@@ -31,6 +31,12 @@ class InputHandler:
         
         return choice
     
+    def getFileName(self):
+        fileName = input("Enter the PROPERLY FORMATTED .txt filename: ")
+        while fileName[-4::] != ".txt":
+            print("Only .txt files allowed")
+            fileName = input("Enter the PROPERLY FORMATTED .txt filename: ")
+        return fileName
     
     def getWeek(self, calendar):
         date = input("Enter date in form YYYY-MM-DD: ")
