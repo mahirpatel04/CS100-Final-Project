@@ -1,12 +1,7 @@
 from classes.Calendar import Calendar
-from classes.Month import Month
-from classes.Week import Week
-from classes.Day import Day
-from classes.Event import Event
 from classes.InputHandler import InputHandler
-from datetime import date
 from classes.Display import DisplayClient
-from datetime import date
+
 
 displayer = DisplayClient()
 calendar = Calendar()
