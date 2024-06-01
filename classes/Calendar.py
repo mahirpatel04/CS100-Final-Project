@@ -8,6 +8,7 @@ class Calendar:
         # GETS TODAY's DATE
         self.months = []          
         currMonthList = []
+        self.possibleChoices = ["1", "2", "3", "4", "5", "6"]
         currDay = date.today()
         currMonthNum = currDay.month
         
@@ -29,14 +30,40 @@ class Calendar:
         
         # WE END WITH 1 LIST OF 12/13 MONTHS
             
-    
-
+    def handleUserChoice(self, choice, display, inputHandler):
+        if choice == '1':
+            event = inputHandler.getEventInfo()
+            self.addEvent(event)
+            return True
+        
+        elif choice == '2':
+            event = inputHandler.getEventInfoToRemove(self)
+            print("Event removed... <FIX_ME>")
+            
+        elif choice == '3':
+            print("Event edited... <FIX_ME>")
+            
+        elif choice == '4':
+            week = inputHandler.getWeek(self)
+            display.viewWeek(week)
+            
+        elif choice == '5':
+            print("Saving entire schedule... <FIX_ME>")
+            
+        elif choice == '6':
+            print("Exiting calendar... <FIX_ME>")
+            return "Quit"
+        
+        else:
+            print("Invalid choice. Please try again.")
+            return False
+        
+        
     def removeMonth():
         pass
     def addEvent(self, eventToAdd):
-        monthObject = self.findMonth(eventToAdd.date)
-
-        monthObject.addEvent(eventToAdd)
+        day = self.findDay(eventToAdd.date)
+        day.addEvent(eventToAdd)
         # print("HELLO HELLO HELP:", eventToAdd.date, "!!!!")
         
     def findMonth(self, date):
@@ -52,6 +79,12 @@ class Calendar:
             for day in week.days:
                 if day.date == date:
                     return week
+            
+    def findDay(self, date):
+        week = self.findWeek(date)  
+        for day in week.days:
+            if day.date == date:
+                return day  
         
         
     def addMonth():

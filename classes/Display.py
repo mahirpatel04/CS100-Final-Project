@@ -5,7 +5,7 @@ from datetime import date, timedelta
 
 class DisplayClient:
     def displayWelcome(self):
-        print("Welcome to R'Agenda! You can plan and schedule events in this text-based planner.\nPress 'C' to continue...")
+        print("Welcome to R'Agenda! You can plan and schedule events in this text-based planner.\n")
 
     def displayMenu(self):
         print("MAIN MENU")
@@ -22,11 +22,15 @@ class DisplayClient:
                 for day in week.days:
                     for event in day.events:
                         print(event)
-
-    def viewWeek(self, week):
         print("\n")
+        
+    def viewWeek(self, week):
         for day in week.days:
             print(day.date)
             print("-" * 20)
+            print("\n")
             for event in day.events:
                 print(event)
+
+            
+        
