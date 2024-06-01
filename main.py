@@ -14,8 +14,6 @@ inputHandler = InputHandler()
 
 # STEP 1: Welcome Message
 
-
-
 displayer.displayWelcome()
 continueChoice = inputHandler.getContinue()
 while continueChoice != "C":
@@ -24,12 +22,17 @@ while continueChoice != "C":
     
     
 # STEP 2: Main Menu
+
 displayer.displayMenu()
 menuChoice = inputHandler.getChoice(calendar, displayer)
-while menuChoice == False or menuChoice != "Quit":
-    displayer.displayMenu()
-    menuChoice = inputHandler.getChoice(calendar, displayer)
+try:
+    while menuChoice == False or menuChoice != "Quit":
+        displayer.displayMenu()
+        menuChoice = inputHandler.getChoice(calendar, displayer)
 
+except EOFError:
+    print("Done reading from file. Remove this try/except block for final iteration of product")
+    
 # STEP 3: Get Input
 #while input("Enter your choice: ") != "q":
     
