@@ -11,9 +11,9 @@ class InputHandler:
         if choice == '1':
             event = self.getEventInfo()
             calendar.addEvent(event)
-            print("Event adding... <FIX_ME>")
-            return 
+            return True
         elif choice == '2':
+            event = self.getEventInfoToRemove()
             print("Event removed... <FIX_ME>")
         elif choice == '3':
             print("Event edited... <FIX_ME>")
@@ -36,7 +36,8 @@ class InputHandler:
         
         return calendar.findWeek(date)
         
-        
+    def getEventInfoToRemove(self, calendar):
+        pass
         
         
         
