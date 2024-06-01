@@ -1,15 +1,11 @@
 from datetime import date
 from classes.Event import Event
-
-# from classes.Calendar import Calendar
-
-
-from classes.Event import Event
 from classes.InputHandler import InputHandler 
 
 class Day:
     def __init__(self, date: date):
         self.date = date
+        self.events = []
 
     
 
@@ -24,9 +20,9 @@ class Day:
                 if item.ID == find.ID:
                     self.events.remove(item)
 
-    def addEvent(self):
-        event_input_handler = InputHandler()
-        new_event = event_input_handler.get_event_from_user()
+    def addEvent(self, eventToAdd):
+        # event_input_handler = InputHandler()
+        new_event = eventToAdd
 
         # Insert the new event into the events list in order of start time and ensure no conflicts
         if self._insert_event_in_order(new_event):

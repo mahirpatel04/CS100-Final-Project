@@ -3,35 +3,39 @@ from classes.Month import Month
 from classes.Week import Week
 from classes.Day import Day
 from classes.Event import Event
+from classes.InputHandler import InputHandler
 from datetime import date
 from classes.Display import DisplayClient
 from datetime import date
 
-import sys
-import os
-
-sys.path.append(os.getcwd()) # fixing module not found error for classes
-
-
-#todaysDate = date.today()
-
 displayer = DisplayClient()
-#calendar = Calendar(todaysDate,)
-
-#print("hi")
+calendar = Calendar()
+inputHandler = InputHandler()
 
 # STEP 1: Welcome Message
-# displayer.displayWelcome()
 
+
+
+displayer.displayWelcome()
+continueChoice = inputHandler.getContinue()
+while continueChoice != "C":
+    displayer.displayWelcome()
+    choice = inputHandler.getContinue()
+    
+    
 # STEP 2: Main Menu
 displayer.displayMenu()
+menuChoice = inputHandler.getChoice(calendar, displayer)
+while menuChoice == False or menuChoice != "Quit":
+    displayer.displayMenu()
+    menuChoice = inputHandler.getChoice(calendar, displayer)
 
 # STEP 3: Get Input
 #while input("Enter your choice: ") != "q":
     
     #print("do something")
     
-  
+
 
 
 
