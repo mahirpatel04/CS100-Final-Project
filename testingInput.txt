@@ -1,0 +1,27 @@
+C
+1
+final
+2024-06-06
+06:30
+07:50
+cs100 final
+1
+testEvent
+2024-06-04
+12:12
+14:14
+testingevent
+1
+testEventONE
+2024-06-04
+15:15
+16:16
+testingevent
+1
+testEventTWO
+2024-06-04
+17:17
+18:18
+testingevent
+4
+2024-06-05

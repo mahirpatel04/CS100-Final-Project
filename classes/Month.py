@@ -12,10 +12,8 @@ sys.path.append(os.getcwd()) # fixing module not found error for classes
 
 
 class Month:
-    def __init__(self, listOfDays: List[date]) -> None:
-        # MONTH SHOULD HAVE A LIST OF WEEKS STARTING ON MON
-        # AND GOING ALL THE WAY TO SUNDAY
-        
+    def __init__(self, listOfDays: List[date], monthNum) -> None:
+        self.monthNum = monthNum
         # Adding the days at the beginning
         firstDay = listOfDays[0]
         offset = firstDay.weekday()
@@ -43,8 +41,12 @@ class Month:
                 
     def removeWeek():
         pass
-    def addEvent():
-        pass
+    def addEvent(self, eventToAdd):
+        for week in self.weeks:
+            for day in week.days:
+                if day.date == eventToAdd.date:
+                    day.addEvent(eventToAdd)
+        
     def addWeek():
         pass
     def editEvent():

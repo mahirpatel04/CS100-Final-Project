@@ -1,19 +1,15 @@
-from datetime import date
+from datetime import date, time
 
 class Event:
-    def __init__(self, title: str, startTime: date, endTime: date, ID: int, description: str):
+    def __init__(self, title: str, startTime: time, endTime: time, date: date, description: str):
         self.title = title
         self.startTime = startTime
         self.endTime = endTime
-        self.ID = ID
+        self.date = date
         self.description = description
 
-    def __str__(self):
-        return self.title
 
+    def __str__(self) -> str:
+        return f"Title: {self.title}\nTiming: {self.startTime} - {self.endTime}\nDescription: {self.description}\n"
 
     
-    def __repr__(self) -> str:
-        twentyDashes = "-" * 20
-        return f"{self.title}\n{twentyDashes}\n{self.startTime} - {self.endTime}\n{twentyDashes}\n{self.description}"
-
