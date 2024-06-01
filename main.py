@@ -14,7 +14,7 @@ inputHandler.getContinue()
 
 loadChoice = inputHandler.getLoadChoice()
 calendar.handleLoadCHoice(loadChoice, displayer, inputHandler)
-   
+
 
 # STEP 2: Main Menu
 
@@ -31,5 +31,5 @@ while menuChoice != "6":
     # Get new Menu Choice
     menuChoice = inputHandler.getMenuChoice(calendar)
 else:
-    quitChoice = inputHandler.getQuitChoice()
-    calendar.handleQuitChoice(quitChoice, displayer, inputHandler)
+    quitChoice = inputHandler.getSaveChoice()
+    calendar.handleSaveChoice(quitChoice, displayer, inputHandler)

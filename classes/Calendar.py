@@ -58,12 +58,12 @@ class Calendar:
             print("Invalid choice. Please try again.")
             return False
     
-    def handleQuitChoice(self, choice, display, inputHandler):
+    def handleSaveChoice(self, choice, display, inputHandler):
         if choice == "N":
             return
         elif choice == "Y":
-            file = inputHandler.getFile()
-            print("User wants to save progress into a txt file here")
+            file = inputHandler.getFileName()
+            self.saveToFile(file)
             return
     def handleLoadCHoice(self, choice, display, inputHandler):
         if choice == "N":
@@ -73,6 +73,16 @@ class Calendar:
             self.loadFromFile(file)
             return
     
+    def saveToFile(self, fileName):
+        f = open(fileName, "w")
+        for month in self.months:
+            for week in month.weeks:
+                for day in week.days:
+                    for event in day.events:
+                        f.write(repr(event))
+                        f.write("\n")
+                        
+        
     def loadFromFile(self, fileName):
         f = open(fileName, "r")
         lines = [line.strip() for line in f.readlines()]
