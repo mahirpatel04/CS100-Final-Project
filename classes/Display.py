@@ -28,7 +28,6 @@ class DisplayClient:
         for day in week.days:
             print(day.date)
             print("-" * 20)
-            print("\n")
             for event in day.events:
                 print(event)
 

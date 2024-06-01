@@ -1,7 +1,7 @@
 from datetime import date, timedelta
 from classes.Month import Month # need to have full path not just the file name
-
-
+from classes.Event import Event
+from datetime import datetime
 class Calendar:
     def __init__(self) -> None:
         # CREATES EMPTY MONTH, EMPTY CURR MONTH, AND 
@@ -30,7 +30,7 @@ class Calendar:
         
         # WE END WITH 1 LIST OF 12/13 MONTHS
             
-    def handleUserChoice(self, choice, display, inputHandler):
+    def handleUserMenuChoice(self, choice, display, inputHandler):
         if choice == '1':
             event = inputHandler.getEventInfo()
             self.addEvent(event)
@@ -57,14 +57,38 @@ class Calendar:
         else:
             print("Invalid choice. Please try again.")
             return False
-     
+    
     def handleQuitChoice(self, choice, display, inputHandler):
         if choice == "N":
             return
         elif choice == "Y":
+            file = inputHandler.getFile()
             print("User wants to save progress into a txt file here")
             return
-
+    def handleLoadCHoice(self, choice, display, inputHandler):
+        if choice == "N":
+            return
+        elif choice == "Y":
+            file = inputHandler.getFileName()
+            self.loadFromFile(file)
+            return
+    
+    def loadFromFile(self, fileName):
+        f = open(fileName, "r")
+        lines = [line.strip() for line in f.readlines()]
+        for i in range(0, len(lines), 6):
+            title = lines[i]
+            date = lines[i + 1]
+            startTime = lines[i + 2]
+            endTime = lines[i + 3]
+            description = lines[i + 4]
+            
+            startTime = datetime.strptime(startTime, "%H:%M").time()
+            endTime = datetime.strptime(endTime, "%H:%M").time()
+            date = datetime.strptime(date, "%Y-%m-%d").date()
+            
+            event = Event(title, startTime, endTime, date, description)
+            self.addEvent(event)
     
     def removeMonth():
         pass
