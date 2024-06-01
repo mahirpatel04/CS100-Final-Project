@@ -30,7 +30,7 @@ class Calendar:
         
         # WE END WITH 1 LIST OF 12/13 MONTHS
             
-    def handleUserChoice(self, choice, display, inputHandler):
+    def handleUserMenuChoice(self, choice, display, inputHandler):
         if choice == '1':
             event = inputHandler.getEventInfo()
             self.addEvent(event)
@@ -57,14 +57,19 @@ class Calendar:
         else:
             print("Invalid choice. Please try again.")
             return False
-     
+    
     def handleQuitChoice(self, choice, display, inputHandler):
         if choice == "N":
             return
         elif choice == "Y":
             print("User wants to save progress into a txt file here")
             return
-
+    def handleLoadCHoice(choice, displayer, inputHandler):
+        if choice == "N":
+            return
+        elif choice == "Y":
+            print("User wants to load progress from a txt file here")
+            return
     
     def removeMonth():
         pass
