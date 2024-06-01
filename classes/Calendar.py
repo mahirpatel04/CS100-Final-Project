@@ -1,7 +1,7 @@
 from datetime import date, timedelta
 from classes.Month import Month # need to have full path not just the file name
-
-
+from classes.Event import Event
+from datetime import datetime
 class Calendar:
     def __init__(self) -> None:
         # CREATES EMPTY MONTH, EMPTY CURR MONTH, AND 
@@ -74,8 +74,21 @@ class Calendar:
             return
     
     def loadFromFile(self, fileName):
-        
-        print("FIXME: LOAD FROM FILE HERE")
+        f = open(fileName, "r")
+        lines = [line.strip() for line in f.readlines()]
+        for i in range(0, len(lines), 6):
+            title = lines[i]
+            date = lines[i + 1]
+            startTime = lines[i + 2]
+            endTime = lines[i + 3]
+            description = lines[i + 4]
+            
+            startTime = datetime.strptime(startTime, "%H:%M").time()
+            endTime = datetime.strptime(endTime, "%H:%M").time()
+            date = datetime.strptime(date, "%Y-%m-%d").date()
+            
+            event = Event(title, startTime, endTime, date, description)
+            self.addEvent(event)
     
     def removeMonth():
         pass

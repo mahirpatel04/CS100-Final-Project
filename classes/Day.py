@@ -26,7 +26,7 @@ class Day:
 
         # Insert the new event into the events list in order of start time and ensure no conflicts
         if self._insert_event_in_order(new_event):
-            print("Event", new_event, "was added successfully.")
+            print("Event added successfully.")
         else:
             print("Event conflicts with existing events and was not added.")
     

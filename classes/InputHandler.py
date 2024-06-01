@@ -1,6 +1,6 @@
 from datetime import datetime
 from classes.Event import Event
-import easygui
+
 class InputHandler:
     def getContinue(self):
         choice = input("Press 'C' to continue: ")
@@ -32,7 +32,7 @@ class InputHandler:
         return choice
     
     def getFileName(self):
-        fileName = input("Enter the PROPERLY FORMATTED .txt filename: ")
+        fileName = input("Enter the filename you want to load from followed by .txt and make sure this file is in the same directory: ")
         while fileName[-4::] != ".txt":
             print("Only .txt files allowed")
             fileName = input("Enter the PROPERLY FORMATTED .txt filename: ")

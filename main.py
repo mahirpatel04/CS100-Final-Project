@@ -15,7 +15,7 @@ inputHandler.getContinue()
 loadChoice = inputHandler.getLoadChoice()
 calendar.handleLoadCHoice(loadChoice, displayer, inputHandler)
    
-    
+
 # STEP 2: Main Menu
 
 displayer.displayMenu()

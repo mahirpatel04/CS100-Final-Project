@@ -35,11 +35,7 @@ class Month:
                 
     def removeWeek():
         pass
-    def addEvent(self, eventToAdd):
-        for week in self.weeks:
-            for day in week.days:
-                if day.date == eventToAdd.date:
-                    day.addEvent(eventToAdd)
+    
         
     def addWeek():
         pass
