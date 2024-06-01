@@ -30,4 +30,6 @@ while menuChoice != "6":
     # Get new Menu Choice
     menuChoice = inputHandler.getMenuChoice(calendar)
 else:
-    print("User wants to quit, handle saving progress into txt file here")
+    quitChoice = inputHandler.getQuitChoice()
+    calendar.handleQuitChoice(quitChoice, displayer, inputHandler)
+    

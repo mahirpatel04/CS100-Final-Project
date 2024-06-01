@@ -39,4 +39,12 @@ class InputHandler:
         desc = input("Enter description of your event: ")
         
         return Event(title, startTime, endTime, date, desc)
+    
+    def getQuitChoice(self):
+        choice = input("Do you want to save your progress?(Y/N): ")
+        while choice != "Y" and choice != "N":
+            print("Invalid choice")
+            choice = input("Do you want to save your progress?(Y/N): ")
+        
+        return choice
         

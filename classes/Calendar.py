@@ -57,8 +57,15 @@ class Calendar:
         else:
             print("Invalid choice. Please try again.")
             return False
-        
-        
+     
+    def handleQuitChoice(self, choice, display, inputHandler):
+        if choice == "N":
+            return
+        elif choice == "Y":
+            print("User wants to save progress into a txt file here")
+            return
+
+    
     def removeMonth():
         pass
     def addEvent(self, eventToAdd):
