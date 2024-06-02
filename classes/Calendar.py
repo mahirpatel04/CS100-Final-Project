@@ -102,7 +102,7 @@ class Calendar:
     
     def removeMonth():
         pass
-    def addEvent(self, eventToAdd):
+    def addEvent(self, eventToAdd: Event):
         day = self.findDay(eventToAdd.date)
         day.addEvent(eventToAdd)
         # print("HELLO HELLO HELP:", eventToAdd.date, "!!!!")
@@ -120,12 +120,14 @@ class Calendar:
             for day in week.days:
                 if day.date == date:
                     return week
+        return week
             
     def findDay(self, date):
         week = self.findWeek(date)  
         for day in week.days:
             if day.date == date:
                 return day  
+        return day
         
         
     def addMonth():
