@@ -10,15 +10,12 @@ class Day:
     
 
     
-    def removeEvent(self):
-        name = input("Enter the exact name of the event you're gonna remove ")
-        Identity = input("Enter the ID of the event ")
-        Identity = int(Identity)
-        find = Event(name, date, date, Identity)
+    def removeEvent(self, inputHandler):
+        name = inputHandler.getNameofEvent()
+        find = Event(name, date, date, 0, "empty")
         for item in self.events:
             if item.title == find.title:
-                if item.ID == find.ID:
-                    self.events.remove(item)
+                self.events.remove(item)
 
     def addEvent(self, eventToAdd):
         # event_input_handler = InputHandler()

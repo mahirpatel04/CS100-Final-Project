@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from classes.Month import Month # need to have full path not just the file name
 from classes.Event import Event
 from datetime import datetime
+from classes.InputHandler import InputHandler
 class Calendar:
     def __init__(self) -> None:
         # CREATES EMPTY MONTH, EMPTY CURR MONTH, AND 
@@ -37,7 +38,7 @@ class Calendar:
             return True
         
         elif choice == '2':
-            event = inputHandler.getEventInfoToRemove(self)
+            self.removeEvent(inputHandler)
             print("Event removed... <FIX_ME>")
             
         elif choice == '3':
@@ -48,6 +49,8 @@ class Calendar:
             display.viewWeek(week)
             
         elif choice == '5':
+            file = inputHandler.getFileName()
+            self.saveToFile(file)
             print("Saving entire schedule... <FIX_ME>")
             
         elif choice == '6':
@@ -120,22 +123,20 @@ class Calendar:
             for day in week.days:
                 if day.date == date:
                     return week
-        return week
             
     def findDay(self, date):
         week = self.findWeek(date)  
         for day in week.days:
             if day.date == date:
                 return day  
-        return day
         
         
     def addMonth():
         pass
     def editEvent():
         pass
-    def removeEvent(self):
-        for item in self.months:
-            item.removeEvent()
+    def removeEvent(self, inputHandler):
+        day = inputHandler.getDayOfEventRemove(self)
+        day.removeEvent()
     def searchEvent():
         pass

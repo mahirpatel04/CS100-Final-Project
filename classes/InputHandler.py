@@ -47,10 +47,11 @@ class InputHandler:
     def getDayOfEventRemove(self, calendar):
         date = input("Enter date in form YYYY-MM-DD: ")
         date = datetime.strptime(date, "%Y-%m-%d").date()
-        
         return calendar.findDay(date)
-        
-        
+    
+    def getNameofEvent(self):
+        name = input("Enter the name of the event you want to remove: ")
+        return name
         
     def getEventInfo(self):
         title = input("Enter title of your event: ")
