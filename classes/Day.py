@@ -6,15 +6,11 @@ class Day:
     def __init__(self, date: date):
         self.date = date
         self.events = []
-
-    
-
     
     def removeEvent(self, inputHandler):
         name = inputHandler.getNameofEvent()
-        find = Event(name, date, date, 0, "empty")
         for item in self.events:
-            if item.title == find.title:
+            if item.title == name:
                 self.events.remove(item)
 
     def addEvent(self, eventToAdd):
@@ -47,3 +43,11 @@ class Day:
         # If no conflict and no earlier event is found, append the new event at the end
         self.events.append(new_event)
         return True
+
+    def editEvent(self, inputHandler):
+        name = inputHandler.getNameofEventEdit()
+        for item in self.events:
+            if item.title == name:
+                item.edit(inputHandler)
+            else:
+                print("No event with name", name, "exists")

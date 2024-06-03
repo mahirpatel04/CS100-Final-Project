@@ -39,10 +39,11 @@ class Calendar:
         
         elif choice == '2':
             self.removeEvent(inputHandler)
-            print("Event removed... <FIX_ME>")
+            print("Event removed successfully")
             
         elif choice == '3':
-            print("Event edited... <FIX_ME>")
+            self.editEvent(inputHandler)
+            print("Event edited successfully")
             
         elif choice == '4':
             week = inputHandler.getWeek(self)
@@ -51,10 +52,10 @@ class Calendar:
         elif choice == '5':
             file = inputHandler.getFileName()
             self.saveToFile(file)
-            print("Saving entire schedule... <FIX_ME>")
+            print("Saving entire schedule")
             
         elif choice == '6':
-            print("Exiting calendar... <FIX_ME>")
+            print("Exiting calendar")
             return "Quit"
         
         else:
@@ -133,8 +134,9 @@ class Calendar:
         
     def addMonth():
         pass
-    def editEvent():
-        pass
+    def editEvent(self, inputHandler):
+        day = inputHandler.getDayOfEventRemove(self)
+        day.editEvent(inputHandler)
     def removeEvent(self, inputHandler):
         day = inputHandler.getDayOfEventRemove(self)
         day.removeEvent()

@@ -67,4 +67,36 @@ class InputHandler:
         
         return Event(title, startTime, endTime, date, desc)
     
+    def getEditInfo(self):
+        print("Edit options")
+        print("Select 1 to change TITLE")
+        print("Select 2 to Display event")
+        print("Select 3 to change START TIME")
+        print("Select 4 to change the END TIME")
+        print("Select 5 to change the DESCRIPTION")
+        print("Select 6 to EXIT")
+        choice = input("Enter your input: ")
+        return choice
+
+    def getDescription(self):
+        description = input("Enter the new descriptionf for the event: ")
+        return description
+
+    def getTitle(self):
+        title = input("Enter the new title of the event: ")
+        return title
+    
+    def getDate(self):
+        date = input("Enter date in form YYYY-MM-DD: ")
+        date = datetime.strptime(date, "%Y-%m-%d").date()
+        return date
+    
+    def getTime(self):
+        time = input("Enter the new time as HH:MM in 24 hour time: ")
+        time = datetime.strptime(time, "%H:%M").time()
+        return time
+
+    def getNameofEventEdit(self):
+        name = input("Enter the name of the event you want to edit: ")
+        return name
         

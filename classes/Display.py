@@ -30,6 +30,5 @@ class DisplayClient:
             print("-" * 20)
             for event in day.events:
                 print(event)
-
             
         
