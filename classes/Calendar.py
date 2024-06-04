@@ -97,8 +97,8 @@ class Calendar:
             endTime = lines[i + 3]
             description = lines[i + 4]
             
-            startTime = datetime.strptime(startTime, "%H:%M").time()
-            endTime = datetime.strptime(endTime, "%H:%M").time()
+            startTime = datetime.strptime(startTime, "%H:%M:%S").time()
+            endTime = datetime.strptime(endTime, "%H:%M:%S").time()
             date = datetime.strptime(date, "%Y-%m-%d").date()
             
             event = Event(title, startTime, endTime, date, description)
