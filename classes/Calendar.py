@@ -15,7 +15,6 @@ class Calendar:
         
         # ADD THE 365 DAYS INTO THE CALENDAR
         for i in range(365):
-
             if currDay.month == currMonthNum:
                 currMonthList.append(currDay)
             else:
@@ -107,8 +106,6 @@ class Calendar:
             event = Event(title, startTime, endTime, date, description)
             self.addEvent(event)
     
-    def removeMonth():
-        pass
     def addEvent(self, eventToAdd: Event):
         day = self.findDay(eventToAdd.date)
         day.addEvent(eventToAdd)

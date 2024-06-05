@@ -1,23 +1,76 @@
-from datetime import date, timedelta
+from datetime import date, time, timedelta
 from classes.Calendar import Calendar
 from classes.Day import Day
 from classes.Display import DisplayClient
+from classes.InputHandler import InputHandler
 from classes.Event import Event
 from classes.Month import Month
 from classes.Week import Week
-today = date.today()
-tmrw = today + timedelta(1)
-dayAftertmrw = tmrw + timedelta(1)
 
-testEvent1 = {"title": "event1",
-              "startTime": today,
-              "endTime": tmrw}
+import pytest
+import mock
 
 
 
 class TestCalendar:
-    pass
-
+    def test_calendar_constructor(self):
+        c = Calendar()
+        for month in c.months:
+            for week in month.weeks:
+                for day in week.days:
+                    assert type(day.date) == date
+    
+    def test_calendar_choices(self):
+        c = Calendar()
+        assert c.possibleChoices == ["1", "2", "3", "4", "5", "6"] 
+        
+                     
+    def test_calendar_choices_addEvent(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        module = "classes.Calendar"
+        mockFunc = f"{module}.InputHandler.getEventInfo"
+        with mock.patch(mockFunc, return_value=Event("title", time(), time(), date.today(), "description")):
+            assert c.handleUserMenuChoice("1", d, i) == 1
+    
+    def test_calendar_choices_removeEvent(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        module = "classes.Calendar"
+        mockFunc = f"{module}.Calendar.removeEvent"
+        
+        with mock.patch(mockFunc, return_value=""):
+            assert c.handleUserMenuChoice("2", d, i) == 2
+    
+    def test_calendar_choices_editEvent(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        module = "classes.Calendar"
+        mockFunc = f"{module}.Calendar.editEvent"
+        
+        with mock.patch(mockFunc, return_value=""):
+            assert c.handleUserMenuChoice("3", d, i) == 3
+            
+    def test_calendar_choices_viewWeek(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        module = "classes.Calendar"
+        mockGetEventInfo = f"{module}.InputHandler.getWeek"
+        with mock.patch(mockGetEventInfo, return_value=Week([Day(date.today())])):
+            assert c.handleUserMenuChoice("4", d, i) == 4
+    
+    def test_calendar_choices_quit(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        assert c.handleUserMenuChoice("6", d, i) == "Quit"
+            
+            
+            
 class TestDay:
     pass
 
@@ -55,6 +108,11 @@ class TestEvent:
         e = Event("title", today, tmrw, 123, "description")
         # not done...
 
+
+
+
+
+
 class TestInputHandler:
     pass
 
@@ -73,3 +131,12 @@ def test_greet(capfd):
     out, err = capfd.readouterr()
     assert out == "Hello, World!\n"
     assert err == ""
+
+class Teststuff:
+    def test_something_that_involves_user_input(self):
+
+        with mock.patch('builtins.input', return_value="yes"):
+            assert input() == "yes"
+            
+        with mock.patch('builtins.input', return_value="no"):
+            assert input() == "no"
