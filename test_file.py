@@ -276,21 +276,37 @@ class TestDay:
                 assert d.editEvent(i) == False
             
 class TestDisplayClient:
-    def test_displayClient(self):
+    def test_displayClient_WelcomeMessage(self, capfd):
         d = DisplayClient()
+        d.displayWelcome()
+        out, err = capfd.readouterr()
+        assert out == "Welcome to R'Agenda! You can plan and schedule events in this text-based planner.\n\n"
+        assert err == ""
         
-    def test_menu(self):
+    def test_displayClient_Menu(self, capfd):
         d = DisplayClient()
-        output = d.displayMenu()
-        expected = f"Menu\n--------------------\n1. Add Event\n2. Remove Event\n3. Edit Event\n4. View Calendar\n5. Exit"
-        assert output == expected
+        d.displayMenu()
+        out, err = capfd.readouterr()
+        assert out == f"MAIN MENU\nSelect 1 to ADD an event\nSelect 2 to REMOVE an event\nSelect 3 to EDIT an event\nSelect 4 to VIEW your calendar\nSelect 5 to SAVE your calendar\nSelect 6 to EXIT\n"
+        assert err == ""
     
-    def test_event(self):
+    def test_displayClient_ViewWeek(self, capfd):
         d = DisplayClient()
-        event = Event("title", today, tmrw, 123, "description")
-        output = d.displayEvent(event)
-        expected = f"{event.title}\n--------------------\n{event.startTime} - {event.endTime}\n--------------------\n{event.description}"
-        assert output == expected
+        c = Calendar()
+        currTime = time()
+        oneHrLater = time(1)
+        twoHrsLater = time(2)
+        e = Event("title1", currTime, currTime, date.today(), "description")
+        e2 = Event("title2", oneHrLater, oneHrLater, date.today(), "description")
+        e3 = Event("title3", twoHrsLater, twoHrsLater, date.today(), "description")
+        c.addEvent(e)
+        c.addEvent(e2)
+        c.addEvent(e3)
+        week = c.months[0].weeks[0]
+        d.viewWeek(week)
+        out, err = capfd.readouterr()
+        assert out == f"Event added successfully.\nEvent added successfully.\nEvent added successfully.\n{week.days[0].date}\n--------------------\n{week.days[1].date}\n--------------------\n{week.days[2].date}\n--------------------\nTitle: title1\nTiming: 00:00:00 - 00:00:00\nDescription: description\n\nTitle: title2\nTiming: 01:00:00 - 01:00:00\nDescription: description\n\nTitle: title3\nTiming: 02:00:00 - 02:00:00\nDescription: description\n\n{week.days[3].date}\n--------------------\n{week.days[4].date}\n--------------------\n{week.days[5].date}\n--------------------\n{week.days[6].date}\n--------------------\n"
+        assert err == ""
 
 class TestEvent:
     def test_event_constructor(self):
