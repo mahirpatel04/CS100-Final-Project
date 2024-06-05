@@ -6,11 +6,7 @@ from classes.InputHandler import InputHandler
 from classes.Event import Event
 from classes.Month import Month
 from classes.Week import Week
-
-import pytest
 import mock
-
-
 
 class TestCalendar:
     def test_calendar_constructor(self):
@@ -365,7 +361,6 @@ class TestEvent:
             assert e.edit(i) == "Succesful"
 
 class TestInputHandler:
-
     def test_input_continue(self, monkeypatch):
         i = InputHandler()
         monkeypatch.setattr('builtins.input', lambda _: "C")
@@ -524,8 +519,7 @@ class TestInputHandler:
         monkeypatch.setattr('builtins.input', lambda _: "test name")
         test_input = i.getDescription()
         assert test_input == "test name"
-     
-
+    
 class TestMonth:
     def test_month_constructor(self):
         day = date.today()
@@ -562,22 +556,3 @@ class TestWeek:
         mockRemoveEvent= f"{module}.Day.removeEvent"
         with mock.patch(mockRemoveEvent):
             assert test_week.removeEvent() == None
-
-
-def greet(name):
-    print(f"Hello, {name}!")
-    
-def test_greet(capfd):
-    greet("World")
-    out, err = capfd.readouterr()
-    assert out == "Hello, World!\n"
-    assert err == ""
-
-class Teststuff:
-    def test_something_that_involves_user_input(self):
-
-        with mock.patch('builtins.input', return_value="yes"):
-            assert input() == "yes"
-            
-        with mock.patch('builtins.input', return_value="no"):
-            assert input() == "no"
