@@ -1,4 +1,4 @@
-from datetime import date, time, timedelta
+from datetime import date, time, timedelta, datetime
 from classes.Calendar import Calendar
 from classes.Day import Day
 from classes.Display import DisplayClient
@@ -132,25 +132,59 @@ class TestDisplayClient:
 
 class TestEvent:
     def test_event_constructor(self):
-        e = Event("title", today, tmrw, 123, "description")
+        e = Event("title", time(), time(), date.today(), "description")
         assert e.title == "title"
         
         # START TIME AND END TIME DO NOT CONTAIN THE ACTUAL TIMES. THEY SIMPLE CONTAIN THE DATE. FIX LATER!!!
         # ---------------------------------------------------------------------
-        assert e.startTime == today
-        assert e.endTime == tmrw
+        assert e.startTime == time()
+        assert e.endTime == time()
+        assert e.date == date.today()
         # ---------------------------------------------------------------------
-        assert e.ID == 123
         assert e.description == "description"
     
-    def test_edit_startTime(self):
-        e = Event("title", today, tmrw, 123, "description")
-        # not done...
+    def test_edit_startTime(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "11:11")
+        e = Event("title", timedelta, timedelta(), date.today(), "description")
+        e.editStartTime(i)
+        time = "11:11"
+        time = datetime.strptime(time, "%H:%M").time()
+        assert e.startTime == time
 
+    def test_edit_EndTime(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "11:11")
+        e = Event("title", timedelta, timedelta(), date.today(), "description")
+        e.editEndTime(i)
+        time = "11:11"
+        time = datetime.strptime(time, "%H:%M").time()
+        assert e.endTime == time
 
-
-
-
+    def test_edit_description(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "changed")
+        e = Event("title", timedelta, timedelta(), date.today(), "description")
+        e.editDescription(i)
+        assert e.description == "changed"
+    
+    def test_edit_title(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "changed")
+        e = Event("title", timedelta, timedelta(), date.today(), "description")
+        e.editTitle(i)
+        assert e.title == "changed"
+    
+    def test_edit_choice(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "6")
+        e = Event("title", timedelta, timedelta(), date.today(), "description")
+        module = "classes.InputHandler"
+        module2 = "classes.Event"
+        mockEditTitle = f"{module2}.Event.editTitle"
+        mockEditEvent= f"{module}.InputHandler.getTitle"
+        with mock.patch(mockEditEvent) and mock.patch(mockEditTitle):
+            assert e.edit(i) == None
 
 class TestInputHandler:
 
@@ -253,6 +287,30 @@ class TestInputHandler:
         test_input = i.getNameofEvent()
         assert test_input == "birthday"
 
+    def test_get_string_title(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "test title")
+        test_input = i.getStringTitle()
+        assert test_input == "test title"
+    
+    def test_get_string_date(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "2024-12-16")
+        test_input = i.getStringDate()
+        assert test_input == "2024-12-16"
+    
+    def test_get_start_time(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "11:11")
+        test_input = i.getStartTime()
+        assert test_input == "11:11"
+
+    def test_get_start_time(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "11:11")
+        test_input = i.getEndTime()
+        assert test_input == "11:11"
+
     def test_get_edit_info(self, monkeypatch):
         i = InputHandler()
         monkeypatch.setattr('builtins.input', lambda _: "1")
@@ -264,13 +322,68 @@ class TestInputHandler:
         monkeypatch.setattr('builtins.input', lambda _: "test input")
         test_input = i.getDescription()
         assert test_input == "test input"
+    
+    def test_get_title(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "test title")
+        test_input = i.getDescription()
+        assert test_input == "test title"
+    
+    def test_get_Date(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "2024-12-12")
+        test_input = i.getDate()
+        assert type(test_input) == date
 
+    def test_get_Time(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "12:12")
+        test_input = i.getTime()
+        assert type(test_input) == time
+
+    def test_get_name_of_event_edit(self, monkeypatch):
+        i = InputHandler()
+        monkeypatch.setattr('builtins.input', lambda _: "test name")
+        test_input = i.getDescription()
+        assert test_input == "test name"
+     
 
 class TestMonth:
-    pass
+    def test_month_constructor(self):
+        day = date.today()
+        listofDays = [day]
+        test_month = Month(listofDays, 1)
+        for week in test_month.weeks:
+            for day in week.days:
+                assert type(day.date) == date
+        
+    def test_remove_event(self, monkeypatch):
+        day = date.today()
+        listofDays = [day]
+        test_month = Month(listofDays, 1)
+        monkeypatch.setattr('builtins.input', lambda _: "birthday")
+        module = "classes.Week"
+        mockRemoveEvent= f"{module}.Week.removeEvent"
+        with mock.patch(mockRemoveEvent):
+            assert test_month.removeEvent() == None
 
 class TestWeek:
-    pass
+    def test_week_contructor(self):
+        day = date.today()
+        listofDays = [day]
+        test_week = Week(listofDays)
+        for day in test_week.days:
+            assert type(day.date) == date
+        
+    def test_remove_event(self, monkeypatch):
+        day = date.today()
+        listofDays = [day]
+        test_week = Week(listofDays)
+        monkeypatch.setattr('builtins.input', lambda _: "birthday")
+        module = "classes.Day"
+        mockRemoveEvent= f"{module}.Day.removeEvent"
+        with mock.patch(mockRemoveEvent):
+            assert test_week.removeEvent() == None
 
 
 def greet(name):
