@@ -56,7 +56,89 @@ class TestEvent:
         # not done...
 
 class TestInputHandler:
-    pass
+    def test_input_continue(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "C")
+        test_input = inputHandler.getContinue()
+        assert test_input == "1"
+    
+    def test_input_menu_choice1(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "1")
+        calendar = Calendar()
+        test_input = inputHandler.getMenuChoice(calendar)
+        assert test_input == "1"
+    
+    def test_input_menu_choice2(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "2")
+        calendar = Calendar()
+        test_input = inputHandler.getMenuChoice(calendar)
+        assert test_input == "2"
+
+    def test_input_menu_choice3(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "3")
+        calendar = Calendar()
+        test_input = inputHandler.getMenuChoice(calendar)
+        assert test_input == "3"
+
+    def test_input_menu_choice4(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "4")
+        calendar = Calendar()
+        test_input = inputHandler.getMenuChoice(calendar)
+        assert test_input == "4"
+    
+    def test_input_menu_choice5(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5")
+        calendar = Calendar()
+        test_input = inputHandler.getMenuChoice(calendar)
+        assert test_input == "5"
+    
+    def test_input_menu_choice6(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "6")
+        calendar = Calendar()
+        test_input = inputHandler.getMenuChoice(calendar)
+        assert test_input == "6"
+
+    def test_get_save_choice1(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "Y")
+        test_input = inputHandler.getSaveChoice()
+        assert test_input == "Y"
+    
+    def test_get_save_choice2(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "N")
+        test_input = inputHandler.getSaveChoice()
+        assert test_input == "N"
+    
+    def test_load_save_choice1(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "Y")
+        test_input = inputHandler.getLoadChoice()
+        assert test_input == "Y"
+    
+    def test_get_save_choice2(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "N")
+        test_input = inputHandler.getLoadChoice()
+        assert test_input == "N"
+
+    def test_get_file_name(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "test.txt")
+        test_input = inputHandler.getFileName()
+        assert test_input == "test.txt"
+
+    def test_get_Week(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "2024-12-12")
+        calendar = Calendar()
+        test_input = inputHandler.getWeek(calendar)
+        assert type(test_input) == Week
+
+    def test_get_day_of_event_remove(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "2024-12-12")
+        calendar = Calendar()
+        test_input = inputHandler.getdayofEventRemove(calendar)
+        assert type(test_input) == Day
+
+    def test_get_name_of_event(self, inputHandler, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "birthday")
+        calendar = Calendar()
+        test_input = inputHandler.getNameofEvent()
+        assert test_input == "birthday"
 
 class TestMonth:
     pass

@@ -6,7 +6,7 @@ class InputHandler:
         choice = input("Press 'C' to continue: ")
         while choice != "C":
             choice = input("Press 'C' to continue: ")
-        return
+        return 1
         
     def getMenuChoice(self, calendar):
         choice =  input("Enter your input: ")
