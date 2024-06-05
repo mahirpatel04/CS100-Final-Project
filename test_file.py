@@ -63,13 +63,52 @@ class TestCalendar:
         with mock.patch(mockGetEventInfo, return_value=Week([Day(date.today())])):
             assert c.handleUserMenuChoice("4", d, i) == 4
     
+    def test_calendar_choices_save(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        module = "classes.Calendar"
+        mockGetEventInfo = f"{module}.InputHandler.getFileName"
+        with mock.patch(mockGetEventInfo):
+            assert c.handleUserMenuChoice("5", d, i) == 5
+    
     def test_calendar_choices_quit(self):
         c = Calendar()
         d = DisplayClient()
         i = InputHandler()
         assert c.handleUserMenuChoice("6", d, i) == "Quit"
             
-            
+    def test_calendar_save_choice_NO(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        assert c.handleSaveChoice("N", d, i) == "N"
+    
+    def test_calendar_save_choice_YES(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        module = "classes.Calendar"
+        mockGetEventInfo = f"{module}.InputHandler.getFileName"
+        with mock.patch(mockGetEventInfo):
+            assert c.handleSaveChoice("Y", d, i) == "Y"
+    
+    def test_calendar_load_choice_NO(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        assert c.handleLoadChoice("N", d, i) == "N"
+    
+    def test_calendar_load_choice_YES(self):
+        c = Calendar()
+        d = DisplayClient()
+        i = InputHandler()
+        module = "classes.Calendar"
+        mockGetEventInfo = f"{module}.InputHandler.getFileName"
+        with mock.patch(mockGetEventInfo):
+            assert c.handleLoadChoice("Y", d, i) == "Y"
+    
+          
             
 class TestDay:
     pass
@@ -114,10 +153,11 @@ class TestEvent:
 
 
 class TestInputHandler:
-    def test_input_continue(self, inputHandler, monkeypatch):
+    def test_input_continue(self, monkeypatch):
+        i = InputHandler()
         monkeypatch.setattr('builtins.input', lambda _: "C")
-        test_input = inputHandler.getContinue()
-        assert test_input == "1"
+        test_input = i.getContinue()
+        assert test_input == 1
     
     def test_input_menu_choice1(self, inputHandler, monkeypatch):
         monkeypatch.setattr('builtins.input', lambda _: "1")

@@ -65,18 +65,18 @@ class Calendar:
     
     def handleSaveChoice(self, choice, display, inputHandler):
         if choice == "N":
-            return
+            return choice
         elif choice == "Y":
             file = inputHandler.getFileName()
             self.saveToFile(file)
-            return
-    def handleLoadCHoice(self, choice, display, inputHandler):
+            return choice
+    def handleLoadChoice(self, choice, display, inputHandler):
         if choice == "N":
-            return
+            return choice
         elif choice == "Y":
             file = inputHandler.getFileName()
             self.loadFromFile(file)
-            return
+            return choice
     
     def saveToFile(self, fileName):
         f = open(fileName, "w")
