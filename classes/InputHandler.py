@@ -52,18 +52,27 @@ class InputHandler:
     def getNameofEvent(self):
         name = input("Enter the name of the event you want to remove: ")
         return name
-        
+    
+    def getStringTitle(self):
+        return input("Enter title of your event: ")
+    def getStringDate(self):
+        return input("Enter date in form YYYY-MM-DD: ")
+    def getStartTime(self):
+        return input("Enter start time of event as HH:MM in 24 hour time: ")
+    def getEndTime(self):
+        return input("Enter end time of event as HH:MM in 24 hour time: ")
+    
     def getEventInfo(self):
-        title = input("Enter title of your event: ")
-        date = input("Enter date in form YYYY-MM-DD: ")
-        startTime = input("Enter start time of event as HH:MM in 24 hour time: ")
-        endTime = input("Enter end time of event as HH:MM in 24 hour time: ")
+        title = self.getStringTitle()
+        date = self.getStringDate()
+        startTime = self.getStartTime()
+        endTime = self.getEndTime()
         
         startTime = datetime.strptime(startTime, "%H:%M").time()
         endTime = datetime.strptime(endTime, "%H:%M").time()
         
         date = datetime.strptime(date, "%Y-%m-%d").date()
-        desc = input("Enter description of your event: ")
+        desc = self.getDescription()
         
         return Event(title, startTime, endTime, date, desc)
     
@@ -79,7 +88,7 @@ class InputHandler:
         return choice
 
     def getDescription(self):
-        description = input("Enter the new descriptionf for the event: ")
+        description = input("Enter the new description for the event: ")
         return description
 
     def getTitle(self):
