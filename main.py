@@ -10,11 +10,12 @@ inputHandler = InputHandler()
 # STEP 1: Welcome Message
 
 displayer.displayWelcome()
-continueChoice = inputHandler.getContinue()
-while continueChoice != "C":
-    continueChoice = inputHandler.getContinue()
-    
-    
+inputHandler.getContinue()
+
+loadChoice = inputHandler.getLoadChoice()
+calendar.handleLoadChoice(loadChoice, displayer, inputHandler)
+
+
 # STEP 2: Main Menu
 
 displayer.displayMenu()
@@ -24,10 +25,11 @@ displayer.displayMenu()
 menuChoice = inputHandler.getMenuChoice(calendar)
 while menuChoice != "6":
     # Handle their old choice
-    calendar.handleUserChoice(menuChoice, displayer, inputHandler)
+    calendar.handleUserMenuChoice(menuChoice, displayer, inputHandler)
     # Display the menu again
     displayer.displayMenu()
     # Get new Menu Choice
     menuChoice = inputHandler.getMenuChoice(calendar)
 else:
-    print("User wants to quit, handle saving progress into txt file here")
+    quitChoice = inputHandler.getSaveChoice()
+    calendar.handleSaveChoice(quitChoice, displayer, inputHandler)

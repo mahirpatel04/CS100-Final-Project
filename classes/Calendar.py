@@ -1,7 +1,8 @@
 from datetime import date, timedelta
 from classes.Month import Month # need to have full path not just the file name
-
-
+from classes.Event import Event
+from datetime import datetime
+from classes.InputHandler import InputHandler
 class Calendar:
     def __init__(self) -> None:
         # CREATES EMPTY MONTH, EMPTY CURR MONTH, AND 
@@ -14,7 +15,6 @@ class Calendar:
         
         # ADD THE 365 DAYS INTO THE CALENDAR
         for i in range(365):
-
             if currDay.month == currMonthNum:
                 currMonthList.append(currDay)
             else:
@@ -30,40 +30,88 @@ class Calendar:
         
         # WE END WITH 1 LIST OF 12/13 MONTHS
             
-    def handleUserChoice(self, choice, display, inputHandler):
+    def handleUserMenuChoice(self, choice, display, inputHandler):
         if choice == '1':
             event = inputHandler.getEventInfo()
             self.addEvent(event)
-            return True
+            return 1
         
         elif choice == '2':
-            event = inputHandler.getEventInfoToRemove(self)
-            print("Event removed... <FIX_ME>")
+            self.removeEvent(inputHandler)
+            return 2
             
         elif choice == '3':
-            print("Event edited... <FIX_ME>")
+            self.editEvent(inputHandler)
+            return 3
             
         elif choice == '4':
             week = inputHandler.getWeek(self)
             display.viewWeek(week)
+            return 4
             
         elif choice == '5':
-            print("Saving entire schedule... <FIX_ME>")
+            file = inputHandler.getFileName()
+            self.saveToFile(file)
+            return 5
             
         elif choice == '6':
-            print("Exiting calendar... <FIX_ME>")
+            print("Exiting calendar")
             return "Quit"
+
         
         else:
             print("Invalid choice. Please try again.")
             return False
+    
+    def handleSaveChoice(self, choice, display, inputHandler):
+        if choice == "N":
+            return choice
+        elif choice == "Y":
+            file = inputHandler.getFileName()
+            self.saveToFile(file)
+            return choice
+    def handleLoadChoice(self, choice, display, inputHandler):
+        if choice == "N":
+            return choice
+        elif choice == "Y":
+            file = inputHandler.getFileName()
+            self.loadFromFile(file)
+            return choice
+    
+    def saveToFile(self, fileName):
+        f = open(fileName, "w")
+        for month in self.months:
+            for week in month.weeks:
+                for day in week.days:
+                    for event in day.events:
+                        f.write(repr(event))
+                        f.write("\n")
         
+        print("Saving entire schedule")
+        return "Saved"  
         
-    def removeMonth():
-        pass
-    def addEvent(self, eventToAdd):
+    def loadFromFile(self, fileName):
+        f = open(fileName, "r")
+        lines = [line.strip() for line in f.readlines()]
+        for i in range(0, len(lines), 6):
+            title = lines[i]
+            date = lines[i + 1]
+            startTime = lines[i + 2]
+            endTime = lines[i + 3]
+            description = lines[i + 4]
+            
+            startTime = datetime.strptime(startTime, "%H:%M:%S").time()
+            endTime = datetime.strptime(endTime, "%H:%M:%S").time()
+            date = datetime.strptime(date, "%Y-%m-%d").date()
+            
+            event = Event(title, startTime, endTime, date, description)
+            self.addEvent(event)
+        return "Loaded"
+    
+    def addEvent(self, eventToAdd: Event):
         day = self.findDay(eventToAdd.date)
         day.addEvent(eventToAdd)
+        return True
         # print("HELLO HELLO HELP:", eventToAdd.date, "!!!!")
         
     def findMonth(self, date):
@@ -86,13 +134,11 @@ class Calendar:
             if day.date == date:
                 return day  
         
-        
-    def addMonth():
-        pass
-    def editEvent():
-        pass
-    def removeEvent(self):
-        for item in self.months:
-            item.removeEvent()
-    def searchEvent():
-        pass
+    def editEvent(self, inputHandler):
+        day = inputHandler.getDayOfEventRemove(self)
+        day.editEvent(inputHandler)
+        return True
+    def removeEvent(self, inputHandler):
+        day = inputHandler.getDayOfEventRemove(self)
+        day.removeEvent()
+        return True

@@ -16,21 +16,11 @@ class DisplayClient:
         print("Select 5 to SAVE your calendar")
         print("Select 6 to EXIT")
         
-    def displayAllEvents(self, calendar: Calendar):
-        for month in calendar.months:
-            for week in month.weeks:
-                for day in week.days:
-                    for event in day.events:
-                        print(event)
-        print("\n")
-        
     def viewWeek(self, week):
         for day in week.days:
             print(day.date)
             print("-" * 20)
-            print("\n")
             for event in day.events:
                 print(event)
-
             
         

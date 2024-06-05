@@ -6,27 +6,22 @@ class Day:
     def __init__(self, date: date):
         self.date = date
         self.events = []
-
     
-
-    
-    def removeEvent(self):
-        name = input("Enter the exact name of the event you're gonna remove ")
-        Identity = input("Enter the ID of the event ")
-        Identity = int(Identity)
-        find = Event(name, date, date, Identity)
+    def removeEvent(self, inputHandler):
+        name = inputHandler.getNameofEvent()
         for item in self.events:
-            if item.title == find.title:
-                if item.ID == find.ID:
-                    self.events.remove(item)
-
+            if item.title == name:
+                self.events.remove(item)
+        print("Event removed successfully")
+        
+        
     def addEvent(self, eventToAdd):
         # event_input_handler = InputHandler()
         new_event = eventToAdd
 
         # Insert the new event into the events list in order of start time and ensure no conflicts
         if self._insert_event_in_order(new_event):
-            print("Event", new_event, "was added successfully.")
+            print("Event added successfully.")
         else:
             print("Event conflicts with existing events and was not added.")
     
@@ -50,3 +45,13 @@ class Day:
         # If no conflict and no earlier event is found, append the new event at the end
         self.events.append(new_event)
         return True
+
+    def editEvent(self, inputHandler):
+        name = inputHandler.getNameofEventEdit()
+        for item in self.events:
+            if item.title == name:
+                item.edit(inputHandler)
+                return True
+            else:
+                print("No event with name", name, "exists")
+                return False
