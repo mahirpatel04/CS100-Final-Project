@@ -122,7 +122,7 @@ class TestCalendar:
     def test_calendar_addEvent(self):
         c = Calendar()
         e = Event("title", time(), time(), date.today(), "description")
-        assert(c.addEvent(e), True)
+        assert c.addEvent(e)
     
     def test_calendar_findMonth1(self):
         c = Calendar()
@@ -362,7 +362,7 @@ class TestEvent:
         mockEditTitle = f"{module2}.Event.editTitle"
         mockEditEvent= f"{module}.InputHandler.getTitle"
         with mock.patch(mockEditEvent) and mock.patch(mockEditTitle):
-            assert e.edit(i) == None
+            assert e.edit(i) == "Succesful"
 
 class TestInputHandler:
 
