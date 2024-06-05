@@ -35,28 +35,30 @@ class Calendar:
         if choice == '1':
             event = inputHandler.getEventInfo()
             self.addEvent(event)
-            return True
+            return 1
         
         elif choice == '2':
             self.removeEvent(inputHandler)
-            print("Event removed successfully")
+            return 2
             
         elif choice == '3':
             self.editEvent(inputHandler)
-            print("Event edited successfully")
+            return 3
             
         elif choice == '4':
             week = inputHandler.getWeek(self)
             display.viewWeek(week)
+            return 4
             
         elif choice == '5':
             file = inputHandler.getFileName()
             self.saveToFile(file)
-            print("Saving entire schedule")
+            return 5
             
         elif choice == '6':
             print("Exiting calendar")
             return "Quit"
+
         
         else:
             print("Invalid choice. Please try again.")
@@ -85,7 +87,8 @@ class Calendar:
                     for event in day.events:
                         f.write(repr(event))
                         f.write("\n")
-                        
+        
+        print("Saving entire schedule")     
         
     def loadFromFile(self, fileName):
         f = open(fileName, "r")

@@ -12,7 +12,9 @@ class Day:
         for item in self.events:
             if item.title == name:
                 self.events.remove(item)
-
+        print("Event removed successfully")
+        
+        
     def addEvent(self, eventToAdd):
         # event_input_handler = InputHandler()
         new_event = eventToAdd

@@ -5,7 +5,6 @@ from classes.Display import DisplayClient
 from classes.Event import Event
 from classes.Month import Month
 from classes.Week import Week
-import pytest
 today = date.today()
 tmrw = today + timedelta(1)
 dayAftertmrw = tmrw + timedelta(1)
@@ -49,4 +48,13 @@ class TestEvent:
         e = Event("title", today, tmrw, 123, "description")
         # not done...
         
+
+
+def greet(name):
+    print(f"Hello, {name}!")
     
+def test_greet(capfd):
+    greet("World")
+    out, err = capfd.readouterr()
+    assert out == "Hello, World!\n"
+    assert err == ""
