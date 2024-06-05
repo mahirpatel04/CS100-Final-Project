@@ -30,6 +30,7 @@ class Event:
                 choice = input("Invalid input, try again: ")
         
         print("Event edited successfully")
+        return "Succesful"
 
     def __str__(self) -> str:
         return f"Title: {self.title}\nTiming: {self.startTime} - {self.endTime}\nDescription: {self.description}\n"

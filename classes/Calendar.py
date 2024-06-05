@@ -87,7 +87,8 @@ class Calendar:
                         f.write(repr(event))
                         f.write("\n")
         
-        print("Saving entire schedule")     
+        print("Saving entire schedule")
+        return "Saved"  
         
     def loadFromFile(self, fileName):
         f = open(fileName, "r")
@@ -105,10 +106,12 @@ class Calendar:
             
             event = Event(title, startTime, endTime, date, description)
             self.addEvent(event)
+        return "Loaded"
     
     def addEvent(self, eventToAdd: Event):
         day = self.findDay(eventToAdd.date)
         day.addEvent(eventToAdd)
+        return True
         # print("HELLO HELLO HELP:", eventToAdd.date, "!!!!")
         
     def findMonth(self, date):
@@ -131,14 +134,11 @@ class Calendar:
             if day.date == date:
                 return day  
         
-        
-    def addMonth():
-        pass
     def editEvent(self, inputHandler):
         day = inputHandler.getDayOfEventRemove(self)
         day.editEvent(inputHandler)
+        return True
     def removeEvent(self, inputHandler):
         day = inputHandler.getDayOfEventRemove(self)
         day.removeEvent()
-    def searchEvent():
-        pass
+        return True

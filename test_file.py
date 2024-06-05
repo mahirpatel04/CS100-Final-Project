@@ -59,8 +59,8 @@ class TestCalendar:
         d = DisplayClient()
         i = InputHandler()
         module = "classes.Calendar"
-        mockGetEventInfo = f"{module}.InputHandler.getWeek"
-        with mock.patch(mockGetEventInfo, return_value=Week([Day(date.today())])):
+        mockFunc = f"{module}.InputHandler.getWeek"
+        with mock.patch(mockFunc, return_value=Week([Day(date.today())])):
             assert c.handleUserMenuChoice("4", d, i) == 4
     
     def test_calendar_choices_save(self):
@@ -68,8 +68,8 @@ class TestCalendar:
         d = DisplayClient()
         i = InputHandler()
         module = "classes.Calendar"
-        mockGetEventInfo = f"{module}.InputHandler.getFileName"
-        with mock.patch(mockGetEventInfo):
+        mockFunc = f"{module}.InputHandler.getFileName"
+        with mock.patch(mockFunc):
             assert c.handleUserMenuChoice("5", d, i) == 5
     
     def test_calendar_choices_quit(self):
@@ -89,8 +89,8 @@ class TestCalendar:
         d = DisplayClient()
         i = InputHandler()
         module = "classes.Calendar"
-        mockGetEventInfo = f"{module}.InputHandler.getFileName"
-        with mock.patch(mockGetEventInfo):
+        mockFunc = f"{module}.InputHandler.getFileName"
+        with mock.patch(mockFunc):
             assert c.handleSaveChoice("Y", d, i) == "Y"
     
     def test_calendar_load_choice_NO(self):
@@ -104,15 +104,177 @@ class TestCalendar:
         d = DisplayClient()
         i = InputHandler()
         module = "classes.Calendar"
-        mockGetEventInfo = f"{module}.InputHandler.getFileName"
-        with mock.patch(mockGetEventInfo):
+        mockFunc = f"{module}.InputHandler.getFileName"
+        with mock.patch(mockFunc):
             assert c.handleLoadChoice("Y", d, i) == "Y"
     
-          
+    def test_calendar_loadFromFile(self):
+        c = Calendar()
+        assert (c.loadFromFile("input.txt") == "Loaded")
+    
+    def test_calendar_saveToFile(self):
+        c = Calendar()
+        e = Event("title", time(), time(), date.today(), "description")
+        c.months[0].weeks[0].days[0].addEvent(e)
+        assert (c.saveToFile("output.txt") == "Saved")  
+            
+            
+    def test_calendar_addEvent(self):
+        c = Calendar()
+        e = Event("title", time(), time(), date.today(), "description")
+        assert(c.addEvent(e), True)
+    
+    def test_calendar_findMonth1(self):
+        c = Calendar()
+        e = Event("title", time(), time(), date.today(), "description")
+        c.addEvent(e)
+        assert (c.findMonth(date.today()) == c.months[0])
+    
+    def test_calendar_findMonth2(self):
+        c = Calendar()
+        e = Event("title", time(), time(), date.today()+ timedelta(days=30), "description")
+        c.addEvent(e)
+        assert (c.findMonth(date.today() + timedelta(days=30)) == c.months[1])
+    
+    
+    def test_calendar_findWeek1(self):
+        c = Calendar()
+        e = Event("title", time(), time(), date.today(), "description")
+        c.addEvent(e)
+        assert (c.findWeek(date.today()) == c.months[0].weeks[0])
+    
+    def test_calendar_findDay1(self):
+        c = Calendar()
+        assert ((c.findDay(date.today()).date) == date.today()) 
+    
+    def test_calendar_findDay2(self):
+        c = Calendar()
+        dateToFind = date.today() + timedelta(days=15)
+        assert ((c.findDay(dateToFind)).date == dateToFind)
+    
+    def test_calendar_findDay3(self):
+        c = Calendar()
+        dateToFind = date.today() + timedelta(days=25)
+        assert ((c.findDay(dateToFind)).date == dateToFind)
+    
+    def test_calendar_editEvent(self):
+        c = Calendar()
+        i = InputHandler()
+        e = Event("title", time(), time(), date.today(), "description")
+        c.addEvent(e)
+        
+        module = "classes.Calendar"
+        mockFunc = f"{module}.InputHandler.getDayOfEventRemove"
+        
+        module2 = "classes.Day"
+        mockFunc2 = f"{module2}.Day.editEvent"
+        with mock.patch(mockFunc, return_value=c.findDay(e.date)):
+            module2 = "classes.Day"
+            mockFunc2 = f"{module2}.Day.editEvent"
+            with mock.patch(mockFunc2):
+                assert c.editEvent(i) == True
+        
+        
+    def test_calendar_removeEvent(self):
+        c = Calendar()
+        i = InputHandler()
+        e = Event("title", time(), time(), date.today(), "description")
+        c.addEvent(e)
+        
+        module = "classes.Calendar"
+        mockFunc = f"{module}.InputHandler.getDayOfEventRemove"
+        
+        module2 = "classes.Day"
+        mockFunc2 = f"{module2}.Day.removeEvent"
+        with mock.patch(mockFunc, return_value=c.findDay(e.date)):
+            module2 = "classes.Day"
+            mockFunc2 = f"{module2}.Day.removeEvent"
+            with mock.patch(mockFunc2):
+                assert c.removeEvent(i) == True
             
 class TestDay:
-    pass
-
+    def test_day_constructorDate(self):
+        d = Day(date.today())
+        assert date.today() == d.date
+        
+    def test_day_constructorEventsList(self):
+        d = Day(date.today())
+        assert not d.events
+    
+    def test_day_addEvent1(self):
+        d = Day(date.today())
+        e = Event("title", time(), time(), date.today(), "description")
+        d.addEvent(e)
+        assert (len(d.events) == 1)
+    
+    def test_day_addEvent2(self):
+        d = Day(date.today())
+        e = Event("title", time(), time(), date.today(), "description")
+        d.addEvent(e)
+        assert (d.events[0] == e)
+    
+    def test_day_addEventInOrder1(self):
+        d = Day(date.today())
+        currTime = time()
+        oneHrLater = time()
+        e = Event("title1", currTime, currTime, date.today(), "description")
+        e2 = Event("title2", oneHrLater, oneHrLater, date.today(), "description")
+        d.addEvent(e)
+        d.addEvent(e2)
+        assert (len(d.events) == 2)
+    
+    def test_day_addEventInOrder2(self):
+        d = Day(date.today())
+        currTime = time()
+        oneHrLater = time(1)
+        e = Event("title1", currTime, currTime, date.today(), "description")
+        e2 = Event("title2", oneHrLater, oneHrLater, date.today(), "description")
+        d.addEvent(e)
+        d.addEvent(e2)
+        assert d.events[0] == e
+        assert d.events[1] == e2
+    
+    def test_day_addEventInOrder3(self):
+        d = Day(date.today())
+        currTime = time()
+        oneHrLater = time(1)
+        twoHrsLater = time(2)
+        e = Event("title1", currTime, currTime, date.today(), "description")
+        e2 = Event("title2", oneHrLater, oneHrLater, date.today(), "description")
+        e3 = Event("title3", twoHrsLater, twoHrsLater, date.today(), "description")
+        d.addEvent(e)
+        d.addEvent(e2)
+        d.addEvent(e3)
+        assert d.events[0] == e
+        assert d.events[1] == e2
+        assert d.events[2] == e3
+    
+    def test_day_editEvent_That_Exists(self):
+        d = Day(date.today())
+        e = Event("title1", time(), time(), date.today(), "description")
+        d.addEvent(e)
+        i = InputHandler()
+        module = "classes.Day"
+        mockFunc = f"{module}.InputHandler.getNameofEventEdit"
+        with mock.patch(mockFunc, return_value="title1"):
+            module2 = "classes.Event"
+            mockFunc2 = f"{module2}.Event.edit"
+            with mock.patch(mockFunc2):
+                assert d.editEvent(i) == True
+        
+    def test_day_editEvent_That_DoesNot_Exists(self):
+        d = Day(date.today())
+        e = Event("title1", time(), time(), date.today(), "description")
+        d.addEvent(e)
+        i = InputHandler()
+        module = "classes.Day"
+        mockFunc = f"{module}.InputHandler.getNameofEventEdit"
+        with mock.patch(mockFunc, return_value="FAIL"):
+            module2 = "classes.Event"
+            mockFunc2 = f"{module2}.Event.edit"
+            with mock.patch(mockFunc2):
+                assert d.editEvent(i) == False
+            
 class TestDisplayClient:
     def test_displayClient(self):
         d = DisplayClient()
