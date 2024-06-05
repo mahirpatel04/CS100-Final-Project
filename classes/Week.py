@@ -1,4 +1,5 @@
 from classes.Day import Day
+from classes.InputHandler import InputHandler
 
 import sys
 import os
@@ -9,16 +10,7 @@ class Week:
     def __init__(self, listOfDays) -> None:
         self.days = [Day(day) for day in listOfDays]
 
-    def removeDay():
-        pass
-    def addEvent():
-        pass
-    def addDay():
-        pass
-    def editEvent():
-        pass
     def removeEvent(self):
+        i = InputHandler()
         for item in self.days:
-            item.removeEvent()
-    def searchEvent():
-        pass
+            item.removeEvent(i)
