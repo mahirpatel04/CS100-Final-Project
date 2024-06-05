@@ -33,16 +33,6 @@ class Month:
             else:
                 currWeekDays.append(day)
                 
-    def removeWeek():
-        pass
-    
-        
-    def addWeek():
-        pass
-    def editEvent():
-        pass
     def removeEvent(self):
         for item in self.weeks:
             item.removeEvent()
-    def searchEvent():
-        pass

@@ -51,5 +51,7 @@ class Day:
         for item in self.events:
             if item.title == name:
                 item.edit(inputHandler)
+                return True
             else:
                 print("No event with name", name, "exists")
+                return False
