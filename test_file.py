@@ -14,7 +14,14 @@ testEvent1 = {"title": "event1",
               "endTime": tmrw}
 
 
-class TestDisplay:
+
+class TestCalendar:
+    pass
+
+class TestDay:
+    pass
+
+class TestDisplayClient:
     def test_displayClient(self):
         d = DisplayClient()
         
@@ -47,7 +54,15 @@ class TestEvent:
     def test_edit_startTime(self):
         e = Event("title", today, tmrw, 123, "description")
         # not done...
-        
+
+class TestInputHandler:
+    pass
+
+class TestMonth:
+    pass
+
+class TestWeek:
+    pass
 
 
 def greet(name):
