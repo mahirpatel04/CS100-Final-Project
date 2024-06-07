@@ -71,7 +71,7 @@ Version 2
 
 Version 3
 
-<img width="461" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/39826a9e-7001-4c23-94f4-70fdd573c02c">
+<img width="600" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/39826a9e-7001-4c23-94f4-70fdd573c02c">
 
 
 
