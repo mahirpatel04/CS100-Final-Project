@@ -110,6 +110,11 @@ Now we are running the EDIT function and viewing our display’s changes. The us
 
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/c7e6105d-5375-457b-899f-e8e366bfa3ff">
 
+**Example of a filled out calender output**
+
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/4ab3def6-f26d-4b36-ab79-3ed0f1ed3f15">
+
+
 
 
 
