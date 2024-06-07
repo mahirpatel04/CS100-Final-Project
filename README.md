@@ -108,7 +108,7 @@ Now we are running the EDIT function and viewing our display’s changes. The us
 
 **Output of an empty calander**
 
-<img width="268" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/c7e6105d-5375-457b-899f-e8e366bfa3ff">
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/c7e6105d-5375-457b-899f-e8e366bfa3ff">
 
 
 
