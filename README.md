@@ -93,7 +93,7 @@ We are using python3 main.py to run our code and we can see our main display sho
 
 Now we are running the EDIT function and viewing our display’s changes
 
-<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/1581141a-2a2a-42de-bd53-09ae4f6c2a2c">
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/1b9e6083-b093-4cba-bb3a-9e5fc7badbf9">
 
 
 **Now, the user is adding a new event and we can see the calendar with the two events that the user inputted.**
