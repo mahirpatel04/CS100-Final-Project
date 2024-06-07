@@ -91,7 +91,7 @@ We are using python3 main.py to run our code and we can see our main display sho
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/e2b5c1b1-7332-415e-9abe-49df9425a81d">
 
 
-Now we are running the EDIT function and viewing our display’s changes. The use changed "Birthday Party" to "Alice's Birthday Party"
+Now we are running the EDIT function and viewing our display’s changes. The user changed the title of the event from "Birthday Party" to "Alice's Birthday Party". The user then enters 6 to exit the edit function. 
 
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/1b9e6083-b093-4cba-bb3a-9e5fc7badbf9">
 
