@@ -88,7 +88,7 @@ Our classes also follow the interface segregation principle, which ensures that 
  ## Screenshots
 We are using python3 main.py to run our code and we can see our main display showing all the different menu choices in which the user can input. The user enters 1, which adds an event with the following title “Birthday Party” and further information such as the date, start time, end time, and description of event. The main menu is displayed again in which the user enters 4, in order to view our current calendar. 
 
-<img width="776" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/e2b5c1b1-7332-415e-9abe-49df9425a81d">
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/e2b5c1b1-7332-415e-9abe-49df9425a81d">
 
 
 **Output after choosing to add/remove an event**
