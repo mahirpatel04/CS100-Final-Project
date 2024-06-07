@@ -86,18 +86,17 @@ Our classes also follow the interface segregation principle, which ensures that 
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
 **Output after choosing to add/remove an event**
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/9cb23c71-f6fd-41e9-8fdd-64ff4f46f7b8">
 
  ## Installation/Usage
- > Instructions on installing and running your application
-To install and run this calendar application, clone this repo into your local IDE. This is a simple terminal application so 
+1. To install and run this calendar application, clone this repo into your local IDE.
+2. In the terminal, run the command: **python3 main.py** 
  ## Testing
-Our project was tested and validated using a series of comprehensive test cases, which are contianing in out 'test_file.py'. We wrote and executed these test cases to ensure that all our functions performed as expected. Although we did not use Continuous Integration (CI) tools, we followed a structured approach to manual testing.
-> **Unit testing:** We created unit tests for each function to validate their individual behaviors. These tests covered a range of inputs, including edge cases, to ensure robustness.
-> **Integration testing:** After unit testing, we performed integration testing to ensure that the interactions between different functions worked correctly.
-> **Tools used:** We used the mock library to simulate and test various functionalities and interactions within our classes. We also used pytest for testing.
+Our project was tested and validated using a series of comprehensive test cases, which are contained in our 'test_file.py'. We wrote and executed these test cases to ensure that all our functions performed as expected. Although we did not use Continuous Integration (CI) tools, we followed a structured approach to manual testing.
+**Unit testing:** We created unit tests for each function to validate their individual behaviors. These tests covered a range of inputs, including edge cases, to ensure robustness.
+**Integration testing:** After unit testing, we performed integration testing to ensure that the interactions between different functions worked correctly.
+**Tools used:** We used the mock library to simulate and test various functionalities and interactions within our classes. We also used pytest for testing.
  
 
 
