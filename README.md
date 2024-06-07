@@ -91,15 +91,18 @@ We are using python3 main.py to run our code and we can see our main display sho
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/e2b5c1b1-7332-415e-9abe-49df9425a81d">
 
 
-**Now we are running the EDIT function and viewing our display’s changes**
-<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/1581141a-2a2a-42de-bd53-09ae4f6c2a2c">
+Now we are running the EDIT function and viewing our display’s changes. The use changed "Birthday Party" to "Alice's Birthday Party"
+
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/1b9e6083-b093-4cba-bb3a-9e5fc7badbf9">
 
 
 **Now, the user is adding a new event and we can see the calendar with the two events that the user inputted.**
+
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/3e817ccc-0b1f-46f5-8324-a301592f73a9">
 
 
 **Output after choosing to add/remove an event**
+
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/9cb23c71-f6fd-41e9-8fdd-64ff4f46f7b8">
 
 
@@ -110,7 +113,8 @@ We are using python3 main.py to run our code and we can see our main display sho
 
  ## Installation/Usage
 1. To install and run this calendar application, clone this repo into your local IDE.
-2. In the terminal, run the command: **python3 main.py** 
+2. Install dependencies required for the calendar and unittests, run the command: **pip install -r requirements.txt**
+3. In the terminal, run the command: **python3 main.py** 
  ## Testing
 Our project was tested and validated using a series of comprehensive test cases, which are contained in our 'test_file.py'. We wrote and executed these test cases to ensure that all our functions performed as expected. Although we did not use Continuous Integration (CI) tools, we followed a structured approach to manual testing.
 **Unit testing:** We created unit tests for each function to validate their individual behaviors. These tests covered a range of inputs, including edge cases, to ensure robustness.
