@@ -286,7 +286,26 @@ class TestDisplayClient:
         assert out == f"MAIN MENU\nSelect 1 to ADD an event\nSelect 2 to REMOVE an event\nSelect 3 to EDIT an event\nSelect 4 to VIEW your calendar\nSelect 5 to SAVE your calendar\nSelect 6 to EXIT\n"
         assert err == ""
     
-    def test_displayClient_ViewWeek(self, capfd):
+    def test_displayClient_ViewEmptyWeek(self, capfd):
+        d = DisplayClient()
+        c = Calendar()    
+        week = c.months[0].weeks[0]
+        d.viewWeek(week)
+        out, err = capfd.readouterr()
+        assert out == f"{week.days[0].date}\n--------------------\n{week.days[1].date}\n--------------------\n{week.days[2].date}\n--------------------\n{week.days[3].date}\n--------------------\n{week.days[4].date}\n--------------------\n{week.days[5].date}\n--------------------\n{week.days[6].date}\n--------------------\n"
+        assert err == ""
+    
+    def test_displayClient_ViewEmptyWeek(self, capfd):
+        d = DisplayClient()
+        c = Calendar()    
+        week = c.months[0].weeks[0]
+
+        d.viewWeek(week)
+        out, err = capfd.readouterr()
+        assert out == f"{week.days[0].date}\n--------------------\n{week.days[1].date}\n--------------------\n{week.days[2].date}\n--------------------\n{week.days[3].date}\n--------------------\n{week.days[4].date}\n--------------------\n{week.days[5].date}\n--------------------\n{week.days[6].date}\n--------------------\n"
+        assert err == ""
+    
+    def test_displayClient_ViewFilledWeek(self, capfd):
         d = DisplayClient()
         c = Calendar()
         currTime = time()
@@ -301,7 +320,15 @@ class TestDisplayClient:
         week = c.months[0].weeks[0]
         d.viewWeek(week)
         out, err = capfd.readouterr()
-        assert out == f"Event added successfully.\nEvent added successfully.\nEvent added successfully.\n{week.days[0].date}\n--------------------\n{week.days[1].date}\n--------------------\n{week.days[2].date}\n--------------------\nTitle: title1\nTiming: 00:00:00 - 00:00:00\nDescription: description\n\nTitle: title2\nTiming: 01:00:00 - 01:00:00\nDescription: description\n\nTitle: title3\nTiming: 02:00:00 - 02:00:00\nDescription: description\n\n{week.days[3].date}\n--------------------\n{week.days[4].date}\n--------------------\n{week.days[5].date}\n--------------------\n{week.days[6].date}\n--------------------\n"
+        exp = "Event added successfully.\nEvent added successfully.\nEvent added successfully.\n"
+        for day in week.days:
+            if day.date == date.today():
+                exp += f"{day.date}\n--------------------\n"
+                for event in day.events:
+                    exp += f"Title: {event.title}\nTiming: {event.startTime} - {event.endTime}\nDescription: {event.description}\n\n"
+            else:
+                exp += f"{day.date}\n--------------------\n"
+        assert out == exp
         assert err == ""
 
 class TestEvent:
@@ -556,3 +583,4 @@ class TestWeek:
         mockRemoveEvent= f"{module}.Day.removeEvent"
         with mock.patch(mockRemoveEvent):
             assert test_week.removeEvent() == None
+        
