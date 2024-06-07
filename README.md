@@ -87,6 +87,7 @@ Our classes also follow the interface segregation principle, which ensures that 
  
  ## Screenshots
 **Output after choosing to add/remove an event**
+
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/9cb23c71-f6fd-41e9-8fdd-64ff4f46f7b8">
 
  ## Installation/Usage
