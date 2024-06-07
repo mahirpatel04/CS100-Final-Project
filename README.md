@@ -127,9 +127,13 @@ Now we are running the EDIT function and viewing our display’s changes. The us
 2. Install dependencies required for the calendar and unittests, run the command: **pip install -r requirements.txt**
 3. In the terminal, run the command: **python3 main.py** 
  ## Testing
+ 
 Our project was tested and validated using a series of comprehensive test cases, which are contained in our 'test_file.py'. We wrote and executed these test cases to ensure that all our functions performed as expected. Although we did not use Continuous Integration (CI) tools, we followed a structured approach to manual testing.
+
 **Unit testing:** We created unit tests for each function to validate their individual behaviors. These tests covered a range of inputs, including edge cases, to ensure robustness.
+
 **Integration testing:** After unit testing, we performed integration testing to ensure that the interactions between different functions worked correctly.
+
 **Tools used:** We used the mock library to simulate and test various functionalities and interactions within our classes. We also used pytest for testing.
  
 
