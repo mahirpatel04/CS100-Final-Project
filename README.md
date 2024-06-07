@@ -86,9 +86,7 @@ Our classes also follow the interface segregation principle, which ensures that 
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
-> We are using python3 main.py to run our code and we can see our main display showing all the different menu choices in which the user can input.
-> The user enters 1, which adds an event with the following title “Birthday Party” and further information such as the date, start time, end time, and description of event.
-> The main menu is displayed again in which the user enters 4, in order to view our current calendar. 
+We are using python3 main.py to run our code and we can see our main display showing all the different menu choices in which the user can input. The user enters 1, which adds an event with the following title “Birthday Party” and further information such as the date, start time, end time, and description of event. The main menu is displayed again in which the user enters 4, in order to view our current calendar. 
 <img width="454" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/8673eb7c-8384-44af-bd7f-e736a27a9b87">
 
 
