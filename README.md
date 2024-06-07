@@ -68,7 +68,7 @@ Version 2
 ![image](https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/46858459/910b2141-c66e-424c-93aa-f578fe20387e)
 
 
-<img width="898" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/368f2307-5e0d-432d-a643-c28b262864c0">
+<img width="750" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/eb4af694-c0a0-432f-9a02-6d91aea625b8">
 
 Version 3
 
