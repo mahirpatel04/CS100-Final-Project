@@ -91,15 +91,18 @@ We are using python3 main.py to run our code and we can see our main display sho
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/e2b5c1b1-7332-415e-9abe-49df9425a81d">
 
 
-**Now we are running the EDIT function and viewing our display’s changes**
+Now we are running the EDIT function and viewing our display’s changes
+
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/1581141a-2a2a-42de-bd53-09ae4f6c2a2c">
 
 
 **Now, the user is adding a new event and we can see the calendar with the two events that the user inputted.**
+
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/3e817ccc-0b1f-46f5-8324-a301592f73a9">
 
 
 **Output after choosing to add/remove an event**
+
 <img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/9cb23c71-f6fd-41e9-8fdd-64ff4f46f7b8">
 
 
