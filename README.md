@@ -89,8 +89,14 @@ Our classes also follow the interface segregation principle, which ensures that 
  > Screenshots of the input/output after running your application
  ## Installation/Usage
  > Instructions on installing and running your application
+To install and run this calendar application, clone this repo into your local IDE. This is a simple terminal application so 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Our project was tested and calidated using a series of comprehensive test cases, which are contianing in out 'test_file.py'. We wrote and executed these test cases to ensure that all our functions performed as expected. Although we did not use Continuous Integration (CI) tools, we followed a structured approach to manual testing.
+> **Unit testing:** We created unit tests for each function to validate their individual behaviors. These tests covered a range of inputs, including edge cases, to ensure robustness.
+> **Integration testing:** After unit testing, we performed integration testing to ensure that the interactions between different functions worked correctly.
+> **Tools used:** We used the mock library to simulate and test various functionalities and interactions within our classes. While we did not use the built-in unittest framework directly for structuring our tests, the test file follows a systematic approach to validate the expected outcomes.
+
  
 
 
