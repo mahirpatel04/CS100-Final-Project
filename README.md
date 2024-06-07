@@ -86,11 +86,36 @@ Our classes also follow the interface segregation principle, which ensures that 
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+We are using python3 main.py to run our code and we can see our main display showing all the different menu choices in which the user can input. The user enters 1, which adds an event with the following title “Birthday Party” and further information such as the date, start time, end time, and description of event. The main menu is displayed again in which the user enters 4, in order to view our current calendar. 
+
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/e2b5c1b1-7332-415e-9abe-49df9425a81d">
+
+
+**Now we are running the EDIT function and viewing our display’s changes**
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/1581141a-2a2a-42de-bd53-09ae4f6c2a2c">
+
+
+**Now, the user is adding a new event and we can see the calendar with the two events that the user inputted.**
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/143913073/3e817ccc-0b1f-46f5-8324-a301592f73a9">
+
+
+**Output after choosing to add/remove an event**
+<img width="425" alt="image" src="https://github.com/cs100/final-project-smans029-tsiva006-mpate141-vkoth006/assets/157240155/9cb23c71-f6fd-41e9-8fdd-64ff4f46f7b8">
+
+
+
+
+
+
+
  ## Installation/Usage
- > Instructions on installing and running your application
+1. To install and run this calendar application, clone this repo into your local IDE.
+2. In the terminal, run the command: **python3 main.py** 
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Our project was tested and validated using a series of comprehensive test cases, which are contained in our 'test_file.py'. We wrote and executed these test cases to ensure that all our functions performed as expected. Although we did not use Continuous Integration (CI) tools, we followed a structured approach to manual testing.
+**Unit testing:** We created unit tests for each function to validate their individual behaviors. These tests covered a range of inputs, including edge cases, to ensure robustness.
+**Integration testing:** After unit testing, we performed integration testing to ensure that the interactions between different functions worked correctly.
+**Tools used:** We used the mock library to simulate and test various functionalities and interactions within our classes. We also used pytest for testing.
  
 
 

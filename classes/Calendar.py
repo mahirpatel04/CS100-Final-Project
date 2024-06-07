@@ -140,5 +140,5 @@ class Calendar:
         return True
     def removeEvent(self, inputHandler):
         day = inputHandler.getDayOfEventRemove(self)
-        day.removeEvent()
+        day.removeEvent(inputHandler)
         return True
